@@ -12,26 +12,25 @@ import java.util.List;
 public class VendorController {
     private final VendorService service;
 
-    public VendorController(VendorService service){
-        this.service = service;
-    }
+    public VendorController(VendorService service)
+    {this.service = service;}
 
     @PostMapping
     public Vendor addVendor(@RequestBody Vendor vendor){
         return service.addVendor(vendor);
     }
 
-    @GetMapping
+    @GetMapping("/vendors")
     public List<Vendor> getAllVendors(){
         return service.getAllVendors();
     }
 
-    @PutMapping
+    @PutMapping()
     public Vendor updateVendor(@PathVariable Long id, @RequestBody Vendor vendor){
         return service.updateVendor(id,vendor);
     }
 
-    @GetMapping
+    @GetMapping("/vendors/nearby")
     public List<Vendor> getNearbyVendors(@RequestParam double lat,
                                          @RequestParam double lon,
                                          @RequestParam(defaultValue = "5") double radiusKm){

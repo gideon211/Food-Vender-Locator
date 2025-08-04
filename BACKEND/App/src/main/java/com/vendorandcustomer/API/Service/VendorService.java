@@ -36,7 +36,7 @@ public class VendorService {
 
         return repository.findById(id)
                 .map(existingVendor -> {
-                    // ✅ Check if the logged-in user owns this vendor
+                    //  Check if the logged-in user owns this vendor
                     if (!existingVendor.getUser().getName().equals(loggedInName)) {
                         throw new RuntimeException("You are not allowed to update this profile!");
                     }
