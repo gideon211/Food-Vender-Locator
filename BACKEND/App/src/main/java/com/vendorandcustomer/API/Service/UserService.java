@@ -27,15 +27,15 @@ public class UserService {
         return repository.save(saveUser);
     }
 
-    public User updateUser(String username, User updatedUser) {
-        return repository.findByName(username)
+    public User updateUser(Long id, User updatedUser) {
+        return repository.findById(id)
                 .map(existingUser -> {
                     existingUser.setName(updatedUser.getName());
                     existingUser.setPassword(passwordEncoder.encode(updatedUser.getPassword())); // ✅ Encode password
 
                     return repository.save(existingUser);
                 })
-                .orElseThrow(() -> new RuntimeException("User not found with username: " + username));
+                .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
     }
 
     public void deleteId(Long id) {
