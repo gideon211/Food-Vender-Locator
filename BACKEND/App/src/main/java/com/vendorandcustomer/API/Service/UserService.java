@@ -41,7 +41,7 @@ public class UserService {
         return repository.findByEmail(email)
                 .map(existingUser -> {
                     existingUser.setName(updatedUser.getName());
-                    existingUser.setPassword(passwordEncoder.encode(updatedUser.getPassword())); // ✅ Encode password
+                    existingUser.setPassword(passwordEncoder.encode(updatedUser.getPassword()));
 
                     return repository.save(existingUser);
                 })
