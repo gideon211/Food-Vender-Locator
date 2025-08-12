@@ -1,0 +1,563 @@
+[
+  {
+    "id": 1,
+    "name": "Ama's Meals",
+    "city": "Accra",
+    "img": "https://media.istockphoto.com/id/2170408203/photo/pizza-with-prosciutto-cotto-ham-and-mushrooms.webp?a=1&b=1&s=612x612&w=0&k=20&c=Y_HumfU4vIxfQARuopWhFQNxg8zHy7R2uf4OSy3a0nc=",
+    "location": { "lat": 5.6037, "lng": -0.1870 },
+    "dishes": [
+      { "name": "Jollof Rice", "price": 20, "img": "https://media.istockphoto.com/id/1407604841/photo/african-style-shrimp-rice-bowl.webp?a=1&b=1&s=612x612&w=0&k=20&c=A5BxEq4dhM_jKzKWmBlrM3eWPC1h7cDSDhwPUhfBORQ=" },
+      { "name": "Waakye", "price": 18, "img": "/images/waakye.jpg" }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Abena's Kitchen",
+    "city": "Kumasi",
+    "img": "https://media.istockphoto.com/id/1407604841/photo/african-style-shrimp-rice-bowl.webp?a=1&b=1&s=612x612&w=0&k=20&c=A5BxEq4dhM_jKzKWmBlrM3eWPC1h7cDSDhwPUhfBORQ=",
+    "location": { "lat": 6.6885, "lng": -1.6244 },
+    "dishes": [
+      { "name": "Fufu & Light Soup", "price": 22, "img": "https://media.istockphoto.com/id/2170408203/photo/pizza-with-prosciutto-cotto-ham-and-mushrooms.webp?a=1&b=1&s=612x612&w=0&k=20&c=Y_HumfU4vIxfQARuopWhFQNxg8zHy7R2uf4OSy3a0nc=" },
+      { "name": "Banku & Okro", "price": 19, "img": "/images/banku.jpg" }
+    ]
+  },
+ {
+  "id": 3,
+  "name": "Akua's Spot",
+  "city": "Cape Coast",
+  "img": "https://images.unsplash.com/photo-1631515243342-6d6efcfa5b4c",
+  "location": { "lat": 5.1053, "lng": -1.2466 },
+  "dishes": [
+    {
+      "name": "Kenkey & Fish",
+      "price": 15,
+      "img": "https://i.ytimg.com/vi/yAOtQcmkgVU/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCKwrkqKZfGybJjb4sXczIngviS6Q"
+    },
+    {
+      "name": "Tilapia & Yam",
+      "price": 24,
+      "img": "https://images.unsplash.com/photo-1551218808-94e220e084d2"
+    }
+  ]
+},
+{
+  "id": 4,
+  "name": "Abigail's Kitchen",
+  "city": "Tamale",
+  "img": "https://images.unsplash.com/photo-1606788075761-46608cc50eb1",
+  "location": { "lat": 9.4075, "lng": -0.8530 },
+  "dishes": [
+    {
+      "name": "Rice Balls",
+      "price": 21,
+      "img": "https://coupleeatsfood.com/wp-content/uploads/2017/04/Tuna-Mayo-Onigiri-Japanese-Rice-Balls.jpg"
+    },
+    {
+      "name": "TZ",
+      "price": 23,
+      "img": "https://images.unsplash.com/photo-1585238341971-418a8e1f9a65"
+    }
+  ]
+},
+{
+  "id": 5,
+  "name": "Baba's Grill",
+  "city": "Accra",
+  "img": "https://images.unsplash.com/photo-1631523410999-dad2dd5f6f7c",
+  "location": { "lat": 5.6100, "lng": -0.2000 },
+  "dishes": [
+    {
+      "name": "Grilled Chicken",
+      "price": 25,
+      "img": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c"
+    },
+    {
+      "name": "Kelewele",
+      "price": 10,
+      "img": "https://images.unsplash.com/photo-1604908177590-3eb63e3f3492"
+    }
+  ]
+},
+{
+  "id": 6,
+  "name": "Beatrice's Meals",
+  "city": "Tema",
+  "img": "https://images.unsplash.com/photo-1643275907501-6adf73ed5a60",
+  "location": { "lat": 5.6690, "lng": -0.0177 },
+  "dishes": [
+    {
+      "name": "Ampesi",
+      "price": 20,
+      "img": "https://i.ytimg.com/vi/XRO4FuuFkHo/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDUZaDuWt4JPc4F5-ZYxcuAGNdkvg"
+    },
+    {
+      "name": "Kontomire",
+      "price": 18,
+      "img": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90"
+    }
+  ]
+},
+{
+  "id": 7,
+  "name": "Bernice's Chop Bar",
+  "city": "Sunyani",
+  "img": "https://images.unsplash.com/photo-1631515241612-13f77600eec1",
+  "location": { "lat": 7.3333, "lng": -2.3333 },
+  "dishes": [
+    {
+      "name": "Fufu & Goat",
+      "price": 26,
+      "img": "https://ghanaremembers.com/storage/public/fufu.jpg"
+    },
+    {
+      "name": "Palmnut Soup",
+      "price": 19,
+      "img": "https://images.unsplash.com/photo-1606788075761-46608cc50eb1"
+    }
+  ]
+},
+{
+  "id": 8,
+  "name": "Bismark Foods",
+  "city": "Bolgatanga",
+  "img": "https://images.unsplash.com/photo-1585238341971-418a8e1f9a65",
+  "location": { "lat": 10.7866, "lng": -0.8514 },
+  "dishes": [
+    {
+      "name": "TZ & Soup",
+      "price": 22,
+      "img": "https://i.pinimg.com/736x/07/13/43/0713438ad2934fac6e783bd71a27bccb.jpg"
+    },
+    {
+      "name": "Banku",
+      "price": 17,
+      "img": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c"
+    }
+  ]
+},
+
+
+  
+  {
+    "id": 9,
+    "name": "Cecilia's Kitchen",
+    "city": "Takoradi",
+    "img": "/images/cecilia-kitchen.jpg",
+    "location": { "lat": 4.8946, "lng": -1.7554 },
+    "dishes": [
+      { "name": "Eba & Egusi", "price": 20, "img": "https://eatwellabi.com/wp-content/uploads/2022/03/Efo-elegusi-cooking-15.jpg" },
+      { "name": "Fried Yam", "price": 12, "img": "/images/friedyam.jpg" }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Comfort's Dishes",
+    "city": "Ho",
+    "img": "/images/comfort-dishes.jpg",
+    "location": { "lat": 6.6008, "lng": 0.4703 },
+    "dishes": [
+      { "name": "Abolo & Fish", "price": 16, "img": "https://i.ytimg.com/vi/Wn3KNn4wi3U/maxresdefault.jpg" },
+      { "name": "Akple & Okro", "price": 20, "img": "/images/akple.jpg" }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Dede's Spot",
+    "city": "Koforidua",
+    "img": "https://media.istockphoto.com/id/2185584059/photo/waitress-working-at-a-food-truck-using-a-digital-tablet.webp?a=1&b=1&s=612x612&w=0&k=20&c=a0MbNxQhjktKWTA-ml_qQc7b1FfYgoKACTbstvra814=",
+    "location": { "lat": 6.0941, "lng": -0.2600 },
+    "dishes": [
+      { "name": "Jollof & Chicken", "price": 23, "img": "https://images.unsplash.com/photo-1549759594-0d842f402b4d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGZyaWVkJTIwY2hpY2tlbnxlbnwwfDB8MHx8fDI%3D" },
+      { "name": "Boiled Plantain & Kontomire", "price": 18, "img": "/images/kontomire.jpg" }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Ebenezer's Kitchen",
+    "city": "Accra",
+    "img": "https://images.fliprogram.com/u/2023/09/29153245/Street-Food-4.webp?strip=all&lossy=1&ssl=1",
+    "location": { "lat": 5.5900, "lng": -0.1900 },
+    "dishes": [
+      { "name": "Red Red", "price": 15, "img": "/images/redred.jpg" },
+      { "name": "Gari Fortor", "price": 14, "img": "/images/gari.jpg" }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Efua's Home Kitchen",
+    "city": "Tema",
+    "img": "https://cdn.businessday.ng/2019/11/IMG-20191116-WA0007.jpg",
+    "location": { "lat": 5.6700, "lng": -0.0200 },
+    "dishes": [
+      { "name": "Rice & Stew", "price": 17, "img": "/images/ricestew.jpg" },
+      { "name": "Chinchinga", "price": 10, "img": "/images/chinchinga.jpg" }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Felicia's Corner",
+    "city": "Kumasi",
+    "img": "https://c8.alamy.com/comp/2B25X5C/a-food-vendor-on-a-street-in-lagos-nigeria-2B25X5C.jpg",
+    "location": { "lat": 6.6930, "lng": -1.6200 },
+    "dishes": [
+      { "name": "Fufu & Palmnut", "price": 24, "img": "/images/palmnut.jpg" },
+      { "name": "Banku & Groundnut Soup", "price": 21, "img": "/images/groundnut.jpg" }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Gifty's Eatery",
+    "city": "Cape Coast",
+    "img": "https://www.shutterstock.com/image-photo/smiling-woman-standing-next-wooden-600nw-2392957529.jpg",
+    "location": { "lat": 5.1060, "lng": -1.2440 },
+    "dishes": [
+      { "name": "Kenkey & Sardine", "price": 13, "img": "/images/kenkey.jpg" },
+      { "name": "Rice Water", "price": 10, "img": "/images/ricewater.jpg" }
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Hannah’s Table",
+    "city": "Sunyani",
+    "img": "https://ghanatalksbusiness.com/wp-content/uploads/2020/03/vendors.jpg",
+    "location": { "lat": 7.3400, "lng": -2.3200 },
+    "dishes": [
+      { "name": "Yam & Garden Egg Stew", "price": 20, "img": "/images/gardenegg.jpg" },
+      { "name": "Corn Dough Fufu", "price": 22, "img": "/images/fufu.jpg" }
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Irene’s Kitchen",
+    "city": "Hohoe",
+    "img": "https://www.shutterstock.com/image-photo/woman-farming-vegetables-greenhouse-agriculture-600w-2346232443.jpg",
+    "location": { "lat": 7.1500, "lng": 0.4700 },
+    "dishes": [
+      { "name": "Akple & Agushie", "price": 19, "img": "/images/akple.jpg" },
+      { "name": "Cassava Dough TZ", "price": 21, "img": "/images/tz.jpg" }
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Juliet’s Kitchen",
+    "city": "Nkawkaw",
+    "img": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2c/c4/98/5f/caption.jpg?w=200&h=200&s=1",
+    "location": { "lat": 6.5500, "lng": -0.7667 },
+    "dishes": [
+      { "name": "Rice Balls & Groundnut Soup", "price": 22, "img": "/images/riceballs.jpg" },
+      { "name": "Plantain & Beans", "price": 16, "img": "/images/redred.jpg" }
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Kofi's Local Dishes",
+    "city": "Accra",
+    "img": "https://africanadishworld.com/wp-content/uploads/2020/08/jollof.png",
+    "location": { "lat": 5.6080, "lng": -0.2150 },
+    "dishes": [
+      { "name": "Jollof & Fried Chicken", "price": 24, "img": "/images/jollof.jpg" },
+      { "name": "Fried Plantain & Beans", "price": 17, "img": "/images/redred.jpg" }
+    ]
+  },
+   {
+    "id": 20,
+    "name": "Kwame's Canteen",
+    "city": "Bolgatanga",
+    "img": "https://i0.wp.com/3.bp.blogspot.com/-YM2oeLpKJPE/UqlZvXL5mEI/AAAAAAAAEI0/0WLvgW2phxY/s1600/sunkwa.JPG",
+    "location": { "lat": 10.7850, "lng": -0.8500 },
+    "dishes": [
+      { "name": "TZ & Green Soup", "price": 22, "img": "/images/tz.jpg" },
+      { "name": "Boiled Yam & Egg Stew", "price": 18, "img": "/images/yam.jpg" }
+    ]
+  },
+  {
+    "id": 21,
+    "name": "BREAKFAST LITTLE",
+    "city": "Tamale",
+    "rating": 4.5,
+    "img": "https://i.redd.it/4b754etxllka1.jpg",
+    "location": { "lat": 9.4080, "lng": -0.8500 },
+    "dishes": [
+      { "name": "Sandwiches", "price": 17, "img": "https://www.marthastewart.com/thmb/CeajAszijIWCydscfKu5CvjRxnQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ms-italian-grilled-sandwich-30a6e44ed8144f89b2627cae423edbf2.jpg" },
+      { "name": "Breakfast and Brunch", "price": 23, "img": "/images/groundnut.jpg" }
+    ]
+  },
+  {
+    "id": 22,
+    "name": "The Melt",
+    "city": "Takoradi",
+    "rating": 4.2,
+    "img": "/images/maame-esi.jpg",
+    "location": { "lat": 4.9000, "lng": -1.7600 },
+    "dishes": [
+      { "name": "Chicken", "price": 16, "img": "https://cdn.loveandlemons.com/wp-content/uploads/2023/12/easy-vegetarian-dinner-recipes.jpg" },
+      { "name": "Vegetarian Friendly", "price": 18, "img": "/images/beans.jpg" }
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Nana’s Kitchen",
+    "rating": 4.0,
+    "city": "Kumasi",
+    "img": "/images/nana-kitchen.jpg",
+    "location": { "lat": 6.6910, "lng": -1.6230 },
+    "dishes": [
+      { "name": "Mexican", "price": 26, "img": "https://www.espressomykitchen.com/wp-content/uploads/2024/04/EMK-The-Ultimate-California-Burrito-hero.jpg" },
+      { "name": "Burrito", "price": 17, "img": "/images/porridge.jpg" }
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Mr. Charlie's",
+    "city": "Ho",
+    "rating": 4.9,
+    "img": "/images/obaa-yaa.jpg",
+    "location": { "lat": 6.6020, "lng": 0.4750 },
+    "dishes": [
+      { "name": "Plant based", "price": 21, "img": "https://keviniscooking.com/wp-content/uploads/2023/08/Quesabirria-Tacos-square.jpg" },
+      { "name": "Tacos", "price": 12, "img": "/images/ricewater.jpg" }
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Pancho Villa Taqueria",
+    "city": "Koforidua",
+    "rating": 3.5,
+    "img": "/images/patience-dishes.jpg",
+    "location": { "lat": 6.0960, "lng": -0.2580 },
+    "dishes": [
+      { "name": "Banku & Tilapia", "price": 25, "img": "https://afrifoodnetwork.com/wp-content/uploads/2023/07/Oven-baked-tilapia-recipe-scaled.jpeg" },
+      { "name": "Gari Soakings", "price": 8, "img": "/images/gari.jpg" }
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Creepes n Cole",
+    "city": "Sunyani",
+    "rating": 3.0,
+    "img": "/images/peace-kitchen.jpg",
+    "location": { "lat": 7.3350, "lng": -2.3320 },
+    "dishes": [
+      { "name": "Fried Yam & Chofi", "price": 20, "img": "https://i.pinimg.com/736x/d6/c5/0b/d6c50befad73b66b80a38e8f8f05940f.jpg" },
+      { "name": "Omo Tuo & Peanut Soup", "price": 22, "img": "/images/omo.jpg" }
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Quophi’s Grill",
+    "city": "Tema",
+    "rating": 4.1,
+    "img": "/images/quophi-grill.jpg",
+    "location": { "lat": 5.6750, "lng": -0.0250 },
+    "dishes": [
+      { "name": "Grilled Guinea Fowl", "price": 28, "img": "https://media.istockphoto.com/id/494992428/photo/split-roasted-turkey.jpg?s=612x612&w=0&k=20&c=BhRN61Bn8B6luIheNXbL69OLgGOEF_8JfHVFoBwHlls=" },
+      { "name": "Banku & Hot Pepper", "price": 18, "img": "/images/banku.jpg" }
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Rebecca's Kitchen",
+    "city": "Wa",
+    "img": "/images/rebecca-kitchen.jpg",
+    "location": { "lat": 10.0600, "lng": -2.5000 },
+    "dishes": [
+      { "name": "Tuo Zaafi & Ayoyo", "price": 20, "img": "/images/tz.jpg" },
+      { "name": "Rice & Groundnut Stew", "price": 19, "img": "/images/groundnut.jpg" }
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Rita’s Kitchen",
+    "city": "Cape Coast",
+    "img": "/images/rita-kitchen.jpg",
+    "location": { "lat": 5.1070, "lng": -1.2450 },
+    "dishes": [
+      { "name": "Fante Kenkey", "price": 15, "img": "/images/fantekenkey.jpg" },
+      { "name": "Palmnut Soup & Rice Balls", "price": 23, "img": "/images/palmnut.jpg" }
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Salma's Spot",
+    "city": "Tamale",
+    "img": "/images/salma-spot.jpg",
+    "location": { "lat": 9.4100, "lng": -0.8520 },
+    "dishes": [
+      { "name": "TZ & Goat Soup", "price": 24, "img": "/images/tz.jpg" },
+      { "name": "Fried Rice", "price": 18, "img": "/images/friedrice.jpg" }
+    ]
+  },
+  {
+    "id": 31,
+    "name": "Sarah's Local Kitchen",
+    "city": "Bolgatanga",
+    "img": "/images/sarah-kitchen.jpg",
+    "location": { "lat": 10.7870, "lng": -0.8530 },
+    "dishes": [
+      { "name": "TZ & Okro Soup", "price": 22, "img": "/images/tz.jpg" },
+      { "name": "Corn Dough & Beans", "price": 17, "img": "/images/beans.jpg" }
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Selina's Kitchen",
+    "city": "Techiman",
+    "img": "/images/selina-kitchen.jpg",
+    "location": { "lat": 7.5833, "lng": -1.9333 },
+    "dishes": [
+      { "name": "Fufu & Light Soup", "price": 23, "img": "/images/fufu.jpg" },
+      { "name": "Kokonte & Groundnut", "price": 20, "img": "/images/kokonte.jpg" }
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Serwaa's Spot",
+    "city": "Accra",
+    "img": "/images/serwaa-spot.jpg",
+    "location": { "lat": 5.6090, "lng": -0.2000 },
+    "dishes": [
+      { "name": "Jollof & Grilled Gizzard", "price": 24, "img": "/images/gizzard.jpg" },
+      { "name": "Boiled Yam & Palava Sauce", "price": 19, "img": "/images/palava.jpg" }
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Sika's Kitchen",
+    "city": "Nkawkaw",
+    "img": "/images/sika-kitchen.jpg",
+    "location": { "lat": 6.5540, "lng": -0.7650 },
+    "dishes": [
+      { "name": "Banku & Pepper", "price": 17, "img": "/images/banku.jpg" },
+      { "name": "Rice Balls & Palmnut Soup", "price": 22, "img": "/images/riceballs.jpg" }
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Suzzy's Tasty Meals",
+    "city": "Tema",
+    "img": "/images/suzzy-meals.jpg",
+    "location": { "lat": 5.6710, "lng": -0.0190 },
+    "dishes": [
+      { "name": "Ampesi & Garden Egg Stew", "price": 20, "img": "/images/ampesi.jpg" },
+      { "name": "Fufu & Fish Soup", "price": 21, "img": "/images/fishsoup.jpg" }
+    ]
+  },
+  {
+    "id": 36,
+    "name": "Tina's Tasty Treats",
+    "city": "Cape Coast",
+    "img": "/images/tina-treats.jpg",
+    "location": { "lat": 5.1080, "lng": -1.2460 },
+    "dishes": [
+      { "name": "Kenkey & Stew", "price": 15, "img": "/images/kenkey.jpg" },
+      { "name": "Boiled Eggs & Sauce", "price": 10, "img": "/images/egg.jpg" }
+    ]
+  },
+  {
+    "id": 37,
+    "name": "Veronica's Meals",
+    "city": "Kumasi",
+    "img": "/images/veronica-meals.jpg",
+    "location": { "lat": 6.6890, "lng": -1.6250 },
+    "dishes": [
+      { "name": "Yam Balls & Spicy Sauce", "price": 20, "img": "/images/yamballs.jpg" },
+      { "name": "Gari Fortor", "price": 14, "img": "/images/gari.jpg" }
+    ]
+  },
+  {
+    "id": 38,
+    "name": "Vida’s Place",
+    "city": "Hohoe",
+    "img": "/images/vida-place.jpg",
+    "location": { "lat": 7.1520, "lng": 0.4720 },
+    "dishes": [
+      { "name": "Akple & Okro Soup", "price": 20, "img": "/images/akple.jpg" },
+      { "name": "Cornmeal Porridge", "price": 12, "img": "/images/porridge.jpg" }
+    ]
+  },
+  {
+    "id": 39,
+    "name": "Wendy’s Grill",
+    "city": "Takoradi",
+    "img": "/images/wendy-grill.jpg",
+    "location": { "lat": 4.8955, "lng": -1.7540 },
+    "dishes": [
+      { "name": "Grilled Chicken & Jollof", "price": 25, "img": "/images/chicken.jpg" },
+      { "name": "Kelewele & Groundnuts", "price": 11, "img": "/images/kelewele.jpg" }
+    ]
+  },
+  {
+    "id": 40,
+    "name": "Yaw's Kitchen",
+    "city": "Sunyani",
+    "img": "/images/yaw-kitchen.jpg",
+    "location": { "lat": 7.3360, "lng": -2.3310 },
+    "dishes": [
+      { "name": "Fufu & Goat Meat", "price": 26, "img": "/images/goat.jpg" },
+      { "name": "Cocoyam & Spinach Stew", "price": 19, "img": "/images/spinach.jpg" }
+    ]
+  },
+  {
+    "id": 41,
+    "name": "Yaw Mensah Foods",
+    "city": "Wa",
+    "img": "/images/yaw-mensah.jpg",
+    "location": { "lat": 10.0580, "lng": -2.5010 },
+    "dishes": [
+      { "name": "TZ & Fish Soup", "price": 21, "img": "/images/tz.jpg" },
+      { "name": "Gari & Beans", "price": 15, "img": "/images/redred.jpg" }
+    ]
+  },
+  {
+    "id": 42,
+    "name": "Zoe’s Delight",
+    "city": "Tamale",
+    "img": "/images/zoe-delight.jpg",
+    "location": { "lat": 9.4060, "lng": -0.8540 },
+    "dishes": [
+      { "name": "Rice & Tomato Stew", "price": 18, "img": "/images/ricestew.jpg" },
+      { "name": "Konkonte & Fish", "price": 20, "img": "/images/kokonte.jpg" }
+    ]
+  },
+  {
+    "id": 43,
+    "name": "Afia’s Chop Bar",
+    "city": "Accra",
+    "img": "/images/afia-chop.jpg",
+    "location": { "lat": 5.6110, "lng": -0.1980 },
+    "dishes": [
+      { "name": "Fufu & Ebunuebunu", "price": 24, "img": "/images/ebunuebunu.jpg" },
+      { "name": "Boiled Yam & Garden Egg", "price": 19, "img": "/images/gardenegg.jpg" }
+    ]
+  },
+  {
+    "id": 44,
+    "name": "Agnes’ Table",
+    "city": "Tema",
+    "img": "/images/agnes-table.jpg",
+    "location": { "lat": 5.6680, "lng": -0.0180 },
+    "dishes": [
+      { "name": "Waakye & Egg", "price": 18, "img": "/images/waakye.jpg" },
+      { "name": "Rice Balls & Fish Soup", "price": 21, "img": "/images/riceballs.jpg" }
+    ]
+  },
+  {
+    "id": 45,
+    "name": "Appiah's Grill",
+    "city": "Koforidua",
+    "img": "/images/appiah-grill.jpg",
+    "location": { "lat": 6.0970, "lng": -0.2570 },
+    "dishes": [
+      { "name": "Banku & Pepper Sauce", "price": 17, "img": "/images/banku.jpg" },
+      { "name": "Grilled Pork", "price": 26, "img": "/images/pork.jpg" }
+    ]
+  }
+]
+  
+
+
+
+
+
+
+
