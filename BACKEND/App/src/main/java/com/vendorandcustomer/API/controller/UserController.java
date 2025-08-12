@@ -1,8 +1,10 @@
 package com.vendorandcustomer.API.controller;
 
 import com.vendorandcustomer.API.Service.UserService;
+import com.vendorandcustomer.API.dto.UserLogin;
 import com.vendorandcustomer.API.dto.UserRequest;
 import com.vendorandcustomer.API.model.User;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
@@ -14,6 +16,11 @@ public class UserController {
 
     public UserController(UserService service){
         this.service = service;
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity <String> login(@RequestBody UserLogin user){
+        return ResponseEntity.ok(service.login(user));
     }
 
     @PostMapping

@@ -1,5 +1,6 @@
 package com.vendorandcustomer.API.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,9 +18,9 @@ public class Vendor {
     private Long id;
     private String name;
 
-    @Column(unique = true)
-    private String email;
-
+    @OneToOne
+    @JsonIgnore
+    private User user;
     private String phoneNumber;
     private String imageUrl;
     private String restaurantType;

@@ -1,6 +1,7 @@
 package com.vendorandcustomer.API.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -31,6 +32,10 @@ public class User implements UserDetails {
     private String email;
 
     private String password;
+
+    @OneToOne
+    @JsonIgnore
+    private Vendor vendor;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
