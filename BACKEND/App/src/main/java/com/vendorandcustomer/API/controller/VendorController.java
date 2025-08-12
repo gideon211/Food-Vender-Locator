@@ -25,10 +25,16 @@ public class VendorController {
         return service.getAllVendors();
     }
 
-    @PutMapping("/update")
-    public Vendor updateVendor(@PathVariable Long id, @RequestBody Vendor vendor){
-        return service.updateVendor(id,vendor);
+    @PutMapping("/update/{email}")
+    public Vendor updateVendor(@PathVariable String email, @RequestBody Vendor vendor){
+        return service.updateVendor(email,vendor);
     }
+
+    @DeleteMapping("/{email}")
+    public void deleteVendor(@PathVariable String email){
+        service.deleteEmail(email);
+    }
+
 
     @GetMapping("/vendors/nearby")
     public List<Vendor> getNearbyVendors(@RequestParam double lat,

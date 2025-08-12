@@ -21,14 +21,14 @@ public class UserController {
         return service.addUser(user);
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteUser(@PathVariable Long id){
-        service.deleteId(id);
+    @DeleteMapping("/{email}")
+    public void deleteUser(@PathVariable String email){
+        service.deleteEmail(email);
     }
 
-    @PutMapping("/{id}")
-    public User updateUser(@PathVariable Long id, @RequestBody User user){
-        return service.updateUser(id, user);
+    @PutMapping("/{email}")
+    public User updateUser(@PathVariable String email, @RequestBody User user){
+        return service.updateUser(email, user);
     }
 
 

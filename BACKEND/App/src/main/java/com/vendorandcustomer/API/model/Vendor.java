@@ -16,17 +16,19 @@ public class Vendor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    @Column(unique = true)
     private String email;
-    private int phoneNumber;
+
+    private String phoneNumber;
     private String imageUrl;
     private String restaurantType;
-    private double latitude;
-    private double longitude;
+    private String description;
+    private String password;
+    private Double latitude;
+    private Double longitude;
 
-    @OneToOne
-    @JoinColumn(name = "user_id")
 
-    private User user;
 
 
 
