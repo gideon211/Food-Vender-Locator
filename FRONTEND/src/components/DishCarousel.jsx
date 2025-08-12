@@ -33,26 +33,26 @@ const dishes = [
 
 export default function FoodStoryCarousel() {
   return (
-    <div className="w-full flex justify-center mt-4">
+    <div className="w-full flex justify-center mt-[-2rem]">
       <Swiper
         modules={[Autoplay, Pagination]}
         autoplay={{ delay: 4000, disableOnInteraction: false }}
         loop={true}
         pagination={{ clickable: true }}
         slidesPerView={1}
-        className="overflow-hidden max-w-[70rem] w-full"
+        className="overflow-hidden w-full"
       >
         {dishes.map((dish, i) => (
           <SwiperSlide key={i}>
-            <div className="relative w-full h-[20rem] sm:h-[25rem] md:h-[28rem] rounded-md overflow-hidden">
+            <div className="relative w-full h-[20rem] sm:h-[25rem] md:h-[30rem] rounded-b-2xl overflow-hidden">
               {/* Background Image */}
               <img
                 src={dish.url}
                 alt={dish.name}
-                className="w-[90rem] h-full object-cover object-center transform transition-transform duration-[4000ms] scale-105"
+                className="w-full h-full object-cover object-center transform transition-transform duration-[4000ms] scale-105"
               />
 
-              {/* Dark overlay for readability */}
+              {/* Dark overlay */}
               <div className="absolute inset-0 bg-black/40"></div>
 
               {/* Story Content */}
@@ -66,7 +66,7 @@ export default function FoodStoryCarousel() {
                 <p className="mt-1 text-xs md:text-sm font-medium text-yellow-300">
                   {dish.vendor} • ⭐ {dish.rating}
                 </p>
-                <button className="mt-3 px-4 py-2 bg-yellow-500 hover:bg-yellow-400 text-black font-semibold rounded-lg shadow-lg transition">
+                <button className="mt-3 px-4 py-2 bg-orange-400 hover:bg-yellow-400 text-white font-semibold rounded-lg shadow-lg transition">
                   Taste It
                 </button>
               </div>

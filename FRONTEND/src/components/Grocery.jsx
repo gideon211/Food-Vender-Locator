@@ -1,11 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Star } from "lucide-react"; // Lucide icons for stars
+import React from 'react'
+import { Link } from 'react-router-dom';
+import { Star } from 'lucide-react';
 
-function NeighborhoodStaples({ vendors = [] }) {
+function Grocery({ vendors}) {
   return (
-    <div className="p-4 grid grid-cols-1 md:grid-cols-2 gap-6 shadow-white">
-      {vendors.slice(21, 27).map((vendor) => (
+    <div>
+            <div className="p-4 grid grid-cols-1 md:grid-cols-2 gap-6 shadow-white">
+      {vendors.slice(28, 40).map((vendor) => (
         <Link
           to={`/vendor/${vendor.id}`}
           key={vendor.id}
@@ -58,7 +59,8 @@ function NeighborhoodStaples({ vendors = [] }) {
         </Link>
       ))}
     </div>
-  );
+    </div>
+  )
 }
 
-export default NeighborhoodStaples;
+export default Grocery

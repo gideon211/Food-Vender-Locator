@@ -39,7 +39,7 @@ export default function SearchBar() {
   key={vendor.id}
   className="transition-all duration-200 ease-in-out hover:bg-amber-100 hover:scale-[1.02] rounded-md"
 >
-  <Link to={`/vendors/${vendor.id}`} className="block px-4 py-2 w-full">
+  <Link to={`/vendor/${vendor.id}`} className="block px-4 py-2 w-full">
     {vendor.name}
   </Link>
 </li>

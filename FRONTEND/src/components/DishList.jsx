@@ -22,16 +22,34 @@ const DishList = ({ vendors }) => {
           {/* Vendor Info */}
           <div className="flex flex-col justify-between">
             <div>
-              <h2 className="text-lg font-semibold text-gray-900">{vendor.name}</h2>
+              <h2 className="text-lg font-semibold text-gray-900">
+                {vendor.name}
+              </h2>
               <p className="text-sm text-gray-600">{vendor.city}</p>
 
-              {/* Dishes preview */}
-<div className="mt-2 flex gap-1 space-y-1">
-  <p className="text-sm text-gray-800 font-medium truncate">
-    {[...new Set(vendor.dishes.map(d => d.name))].join(", ")}
-  </p>
-</div>
+              {/* Description */}
+              <p className="mt-1 text-sm text-gray-700 line-clamp-2 italic">
+                {vendor.description}
+              </p>
 
+              {/* Tags */}
+              <div className="mt-1 flex flex-wrap gap-2">
+                {vendor.tags?.map((tag, index) => (
+                  <span
+                    key={index}
+                    className="px-2 py-1 bg-orange-100 text-gray-800 font-medium text-xs rounded-full"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {/* Dishes preview */}
+              <div className="mt-2">
+                <p className="text-sm text-gray-800 font-medium truncate">
+                  {[...new Set(vendor.dishes.map((d) => d.name))].join(' • ')}
+                </p>
+              </div>
             </div>
           </div>
         </Link>

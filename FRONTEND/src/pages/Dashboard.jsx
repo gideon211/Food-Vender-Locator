@@ -9,6 +9,8 @@ import vendors from '../api/vendors.json';
 import ScrollableCardList from "../components/ScrollableCardList";
 import Staples from "../components/NeighborhoodStaples";
 import vendorsData from "../api/vendors.json";
+import Grocery from "../components/Grocery";
+import vendorData from "../api/vendors.json";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
@@ -190,31 +192,17 @@ const Dashboard = () => {
 </div>
 
 {/* card list */}
-<div className="ml-[4rem] mt-[10rem] "> 
+<div className="ml-[4rem] mt-[10rem] mb-[4rem]"> 
         <h1 className="text-3xl font-bold pb-[2rem] ml-10">Near BY Vendors</h1>
         <ScrollableCardList />
 </div>
 
-
-    </div>
-
-    <div className="text-3xl ml-[4rem] mt-[10rem] ">
-        
-        <h1 className="font-sans font-medium">Top 10 Dishes Local Spots</h1>
-    </div>
+<div className="border-1 w-full border-black/6 rounded-full mb-4"></div>
 
 
-
-    <div className="ml-[4rem] mt-[2rem] pb-[5rem]">
-          <List vendors={vendors}/>
-    </div>
-
-    <div className="border-1 w-full border-black/6 rounded-full mb-4"></div>
-
-   
  <div className="text-3xl ml-[4rem] mt-[5rem] ">
         
-        <h1 className="font-sans font-medium">Neighborhood staples</h1>
+        <h1 className="font-sans font-medium inter">Neighborhood staples</h1>
     </div>
  
 
@@ -222,6 +210,41 @@ const Dashboard = () => {
         <Staples vendors={vendorsData} />
     </div>
 
+
+
+<div className="border-1 w-full border-black/6 rounded-full"></div>
+
+
+    </div>
+
+    
+
+    <div className="text-3xl ml-[4rem] mt-[4rem] mb-7 ">
+        
+        <h1 className="font-sans font-medium inter">Top 10 Dishes Local Spots</h1>
+    </div>
+
+
+
+    <div className="ml-[4rem] pb-[5rem]">
+          <List vendors={vendors}/>
+    </div>
+
+    
+
+   
+
+    
+
+     <div className="border-1 w-full border-black/6 rounded-full mb-4"></div>
+
+     <div className="ml-[4rem] mt-[2rem] pb-[5rem]">
+        <h3 className="font-sans text-3xl font-medium inter">Save big on groceries</h3>
+     </div>
+
+     <div>
+        <Grocery vendors={vendorData} />
+     </div>
   
 
 

@@ -3,10 +3,12 @@
     "id": 1,
     "name": "Ama's Meals",
     "city": "Accra",
+     "tags": ["Local"],
+      "description": "Delicious Ghanaian classics served fresh every day.",
     "img": "https://media.istockphoto.com/id/2170408203/photo/pizza-with-prosciutto-cotto-ham-and-mushrooms.webp?a=1&b=1&s=612x612&w=0&k=20&c=Y_HumfU4vIxfQARuopWhFQNxg8zHy7R2uf4OSy3a0nc=",
     "location": { "lat": 5.6037, "lng": -0.1870 },
     "dishes": [
-      { "name": "Jollof Rice", "price": 20, "img": "https://media.istockphoto.com/id/1407604841/photo/african-style-shrimp-rice-bowl.webp?a=1&b=1&s=612x612&w=0&k=20&c=A5BxEq4dhM_jKzKWmBlrM3eWPC1h7cDSDhwPUhfBORQ=" },
+      { "name": "Jollof Rice", "price": 20, "img": "https://images.bolt.eu/store/2023/2023-08-08/a4d86092-91d4-44e9-9d5d-e454c12fb9ac.webp" },
       { "name": "Waakye", "price": 18, "img": "/images/waakye.jpg" }
     ]
   },
@@ -14,10 +16,12 @@
     "id": 2,
     "name": "Abena's Kitchen",
     "city": "Kumasi",
+     "tags": ["Fast-Food"],
+      "description": "A quick-service eatery offering burgers, fries, sandwiches, and other rapidly prepared items.",
     "img": "https://media.istockphoto.com/id/1407604841/photo/african-style-shrimp-rice-bowl.webp?a=1&b=1&s=612x612&w=0&k=20&c=A5BxEq4dhM_jKzKWmBlrM3eWPC1h7cDSDhwPUhfBORQ=",
     "location": { "lat": 6.6885, "lng": -1.6244 },
     "dishes": [
-      { "name": "Fufu & Light Soup", "price": 22, "img": "https://media.istockphoto.com/id/2170408203/photo/pizza-with-prosciutto-cotto-ham-and-mushrooms.webp?a=1&b=1&s=612x612&w=0&k=20&c=Y_HumfU4vIxfQARuopWhFQNxg8zHy7R2uf4OSy3a0nc=" },
+      { "name": "Fufu & Light Soup", "price": 22, "img": "https://decapitalgrille.com/wp-content/uploads/2023/09/okro-soup-1.jpg" },
       { "name": "Banku & Okro", "price": 19, "img": "/images/banku.jpg" }
     ]
   },
@@ -25,6 +29,8 @@
   "id": 3,
   "name": "Akua's Spot",
   "city": "Cape Coast",
+   "tags": [ "Family Friendly"],
+    "description": "classics served fresh every day.",
   "img": "https://images.unsplash.com/photo-1631515243342-6d6efcfa5b4c",
   "location": { "lat": 5.1053, "lng": -1.2466 },
   "dishes": [
@@ -44,7 +50,9 @@
   "id": 4,
   "name": "Abigail's Kitchen",
   "city": "Tamale",
+   "tags": ["food_truck"],
   "img": "https://images.unsplash.com/photo-1606788075761-46608cc50eb1",
+   "description": "A mobile kitchen selling ready-to-eat meals and snacks.",
   "location": { "lat": 9.4075, "lng": -0.8530 },
   "dishes": [
     {
@@ -63,7 +71,9 @@
   "id": 5,
   "name": "Baba's Grill",
   "city": "Accra",
+ "tags":[ "fine-dining"],
   "img": "https://images.unsplash.com/photo-1631523410999-dad2dd5f6f7c",
+   "description": "An upscale restaurant offering gourmet meals with full table service.",
   "location": { "lat": 5.6100, "lng": -0.2000 },
   "dishes": [
     {
@@ -82,6 +92,8 @@
   "id": 6,
   "name": "Beatrice's Meals",
   "city": "Tema",
+   "tags": ["caterer"],
+    "description": "A service providing prepared food for events, parties, and gatherings.",
   "img": "https://images.unsplash.com/photo-1643275907501-6adf73ed5a60",
   "location": { "lat": 5.6690, "lng": -0.0177 },
   "dishes": [
@@ -101,6 +113,8 @@
   "id": 7,
   "name": "Bernice's Chop Bar",
   "city": "Sunyani",
+   "tags": ["Local"],
+    "description": "Delicious every day.",
   "img": "https://images.unsplash.com/photo-1631515241612-13f77600eec1",
   "location": { "lat": 7.3333, "lng": -2.3333 },
   "dishes": [
@@ -120,6 +134,8 @@
   "id": 8,
   "name": "Bismark Foods",
   "city": "Bolgatanga",
+   "tags": ["Comfort Food"],
+    "description": " classics served fresh every day.",
   "img": "https://images.unsplash.com/photo-1585238341971-418a8e1f9a65",
   "location": { "lat": 10.7866, "lng": -0.8514 },
   "dishes": [
@@ -143,6 +159,8 @@
     "name": "Cecilia's Kitchen",
     "city": "Takoradi",
     "img": "/images/cecilia-kitchen.jpg",
+    "tags": ["Restaurant"],
+      "description": "A place where customers can enjoy prepared meals and beverages.",
     "location": { "lat": 4.8946, "lng": -1.7554 },
     "dishes": [
       { "name": "Eba & Egusi", "price": 20, "img": "https://eatwellabi.com/wp-content/uploads/2022/03/Efo-elegusi-cooking-15.jpg" },
@@ -154,6 +172,8 @@
     "name": "Comfort's Dishes",
     "city": "Ho",
     "img": "/images/comfort-dishes.jpg",
+     "tags": ["Local"],
+      "description": "food for events, parties, and gatherings.",
     "location": { "lat": 6.6008, "lng": 0.4703 },
     "dishes": [
       { "name": "Abolo & Fish", "price": 16, "img": "https://i.ytimg.com/vi/Wn3KNn4wi3U/maxresdefault.jpg" },
@@ -327,7 +347,7 @@
     "location": { "lat": 6.0960, "lng": -0.2580 },
     "dishes": [
       { "name": "Banku & Tilapia", "price": 25, "img": "https://afrifoodnetwork.com/wp-content/uploads/2023/07/Oven-baked-tilapia-recipe-scaled.jpeg" },
-      { "name": "Gari Soakings", "price": 8, "img": "/images/gari.jpg" }
+      { "name": "Steak Grills", "price": 8, "img": "/images/gari.jpg" }
     ]
   },
   {
@@ -350,7 +370,7 @@
     "img": "/images/quophi-grill.jpg",
     "location": { "lat": 5.6750, "lng": -0.0250 },
     "dishes": [
-      { "name": "Grilled Guinea Fowl", "price": 28, "img": "https://media.istockphoto.com/id/494992428/photo/split-roasted-turkey.jpg?s=612x612&w=0&k=20&c=BhRN61Bn8B6luIheNXbL69OLgGOEF_8JfHVFoBwHlls=" },
+      { "name": "Grilled Guinea Fowl", "price": 28, "img": "https://thumbs.dreamstime.com/z/grilled-guinea-fowl-herbs-spices-butcher-board-cooked-game-bird-orange-background-top-view-grilled-guinea-fowl-265997682.jpg" },
       { "name": "Banku & Hot Pepper", "price": 18, "img": "/images/banku.jpg" }
     ]
   },

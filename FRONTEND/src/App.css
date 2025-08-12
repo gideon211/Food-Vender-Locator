@@ -6,3 +6,7 @@
     opacity: 1;
   }
 }
+
+body {
+  font-family: 'Nunito', sans-serif;
+}
