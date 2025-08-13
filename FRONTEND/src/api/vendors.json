@@ -5,11 +5,11 @@
     "city": "Accra",
      "tags": ["Local"],
       "description": "Delicious Ghanaian classics served fresh every day.",
-    "img": "https://media.istockphoto.com/id/2170408203/photo/pizza-with-prosciutto-cotto-ham-and-mushrooms.webp?a=1&b=1&s=612x612&w=0&k=20&c=Y_HumfU4vIxfQARuopWhFQNxg8zHy7R2uf4OSy3a0nc=",
+    "img": "https://images.unsplash.com/photo-1721654867153-ef530e24ada8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9vZCUyMHZlbmRvcnxlbnwwfDF8MHx8fDI%3D",
     "location": { "lat": 5.6037, "lng": -0.1870 },
     "dishes": [
-      { "name": "Jollof Rice", "price": 20, "img": "https://images.bolt.eu/store/2023/2023-08-08/a4d86092-91d4-44e9-9d5d-e454c12fb9ac.webp" },
-      { "name": "Waakye", "price": 18, "img": "/images/waakye.jpg" }
+      { "name": "Jollof Rice", "price": 20, "img": "https://images.unsplash.com/photo-1665332195309-9d75071138f0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8am9sbG9mfGVufDB8MHwwfHx8Mg%3D%3D" },
+      { "name": "Waakye", "price": 18, "img": "https://media.istockphoto.com/id/2206996087/photo/waakye-local-ghana-food-made-with-rice-and-beans-served-spaghetti-egg-wele-and-gari-on.webp?a=1&b=1&s=612x612&w=0&k=20&c=lEm3XMiDAGC7Lk3njuaumt772BFM1Ayd4IuRXYW_IPk=" }
     ]
   },
   {
@@ -18,11 +18,11 @@
     "city": "Kumasi",
      "tags": ["Fast-Food"],
       "description": "A quick-service eatery offering burgers, fries, sandwiches, and other rapidly prepared items.",
-    "img": "https://media.istockphoto.com/id/1407604841/photo/african-style-shrimp-rice-bowl.webp?a=1&b=1&s=612x612&w=0&k=20&c=A5BxEq4dhM_jKzKWmBlrM3eWPC1h7cDSDhwPUhfBORQ=",
+    "img": "https://images.unsplash.com/photo-1536251670848-277d4c02ebc6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZCUyMHZlbmRvcnxlbnwwfDF8MHx8fDI%3D",
     "location": { "lat": 6.6885, "lng": -1.6244 },
     "dishes": [
-      { "name": "Fufu & Light Soup", "price": 22, "img": "https://decapitalgrille.com/wp-content/uploads/2023/09/okro-soup-1.jpg" },
-      { "name": "Banku & Okro", "price": 19, "img": "/images/banku.jpg" }
+      { "name": "Fufu & Light Soup", "price": 22, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjHliNjndvdstxS6B2oQnw2Iufo4a52A5QeQ&s" },
+      { "name": "Banku & Okro", "price": 19, "img": "https://orlandoscafeandgrill.com/wp-content/uploads/2024/01/2022_06_11_01_27_IMG_0978-scaled.jpg" }
     ]
   },
  {
@@ -31,18 +31,18 @@
   "city": "Cape Coast",
    "tags": [ "Family Friendly"],
     "description": "classics served fresh every day.",
-  "img": "https://images.unsplash.com/photo-1631515243342-6d6efcfa5b4c",
+  "img": "https://thumbs.dreamstime.com/b/diverse-african-vendors-cooking-serving-various-bread-based-street-food-outdoor-festival-soweto-south-africa-september-189100739.jpg",
   "location": { "lat": 5.1053, "lng": -1.2466 },
   "dishes": [
     {
       "name": "Kenkey & Fish",
       "price": 15,
-      "img": "https://i.ytimg.com/vi/yAOtQcmkgVU/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCKwrkqKZfGybJjb4sXczIngviS6Q"
+      "img": "https://images.unsplash.com/photo-1740664652036-eb0e22a9d108?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGZvb2QlMjB2ZW5kb3J8ZW58MHwxfDB8fHwy"
     },
-    {
+ {
       "name": "Tilapia & Yam",
       "price": 24,
-      "img": "https://images.unsplash.com/photo-1551218808-94e220e084d2"
+      "img": "https://i.pinimg.com/736x/95/cb/b9/95cbb98566eaa2b2d515c72a2e51399f.jpg"
     }
   ]
 },
@@ -51,19 +51,19 @@
   "name": "Abigail's Kitchen",
   "city": "Tamale",
    "tags": ["food_truck"],
-  "img": "https://images.unsplash.com/photo-1606788075761-46608cc50eb1",
+  "img": "https://thumbs.dreamstime.com/b/diverse-african-vendors-cooking-serving-various-bread-based-street-food-outdoor-festival-soweto-south-africa-september-193451412.jpg",
    "description": "A mobile kitchen selling ready-to-eat meals and snacks.",
   "location": { "lat": 9.4075, "lng": -0.8530 },
   "dishes": [
     {
       "name": "Rice Balls",
       "price": 21,
-      "img": "https://coupleeatsfood.com/wp-content/uploads/2017/04/Tuna-Mayo-Onigiri-Japanese-Rice-Balls.jpg"
+      "img": "https://en.bentoandco.com/cdn/shop/products/faces_7_ab320efc-4674-43a7-9390-b3cb53b56173.jpg?v=1568959685&width=1445"
     },
     {
       "name": "TZ",
       "price": 23,
-      "img": "https://images.unsplash.com/photo-1585238341971-418a8e1f9a65"
+      "img": "https://i.ytimg.com/vi/3jQ-7Fo-4Jc/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAWKHu94qu-0E-MwCh8T2YvfcP9OQ"
     }
   ]
 },
@@ -72,19 +72,19 @@
   "name": "Baba's Grill",
   "city": "Accra",
  "tags":[ "fine-dining"],
-  "img": "https://images.unsplash.com/photo-1631523410999-dad2dd5f6f7c",
+  "img": "https://c8.alamy.com/comp/2CEPP3X/soweto-south-africa-september-8-2018-diverse-african-vendors-cooking-and-serving-various-bread-based-street-food-at-outdoor-festival-2CEPP3X.jpg",
    "description": "An upscale restaurant offering gourmet meals with full table service.",
   "location": { "lat": 5.6100, "lng": -0.2000 },
   "dishes": [
     {
       "name": "Grilled Chicken",
       "price": 25,
-      "img": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c"
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDaLRF6uUduLpYLkhFCDSReL_81rKGtRL-jg&s"
     },
     {
       "name": "Kelewele",
       "price": 10,
-      "img": "https://images.unsplash.com/photo-1604908177590-3eb63e3f3492"
+      "img": "https://shopafricausa.com/cdn/shop/articles/115970822_289095512319920_3042031556085922505_n-1024x1024_1024x.jpg?v=1692874467"
     }
   ]
 },
@@ -94,7 +94,7 @@
   "city": "Tema",
    "tags": ["caterer"],
     "description": "A service providing prepared food for events, parties, and gatherings.",
-  "img": "https://images.unsplash.com/photo-1643275907501-6adf73ed5a60",
+  "img": "https://c8.alamy.com/comp/2C9C8A3/soweto-south-africa-september-8-2018-diverse-african-vendors-cooking-and-serving-various-bread-based-street-food-at-outdoor-festival-2C9C8A3.jpg",
   "location": { "lat": 5.6690, "lng": -0.0177 },
   "dishes": [
     {
@@ -105,7 +105,7 @@
     {
       "name": "Kontomire",
       "price": 18,
-      "img": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90"
+      "img": "https://cdn.shopify.com/s/files/1/0807/4903/5848/files/kontomire_3_480x480.png?v=1731551406"
     }
   ]
 },
@@ -115,7 +115,7 @@
   "city": "Sunyani",
    "tags": ["Local"],
     "description": "Delicious every day.",
-  "img": "https://images.unsplash.com/photo-1631515241612-13f77600eec1",
+  "img": "https://c8.alamy.com/comp/2CEPP7P/soweto-south-africa-september-8-2018-diverse-african-vendors-cooking-and-serving-various-bread-based-street-food-at-outdoor-festival-2CEPP7P.jpg",
   "location": { "lat": 7.3333, "lng": -2.3333 },
   "dishes": [
     {
@@ -126,7 +126,7 @@
     {
       "name": "Palmnut Soup",
       "price": 19,
-      "img": "https://images.unsplash.com/photo-1606788075761-46608cc50eb1"
+      "img": "https://www.tasteatlas.com/images/dishes/8169579bbb534f508a4f1e038d8b002f.jpg"
     }
   ]
 },
@@ -136,7 +136,7 @@
   "city": "Bolgatanga",
    "tags": ["Comfort Food"],
     "description": " classics served fresh every day.",
-  "img": "https://images.unsplash.com/photo-1585238341971-418a8e1f9a65",
+  "img": "https://c8.alamy.com/comp/2BRYDWP/soweto-south-africa-september-8-2018-professional-chefs-cooking-and-preparing-street-food-called-bunny-chow-at-food-festival-2BRYDWP.jpg",
   "location": { "lat": 10.7866, "lng": -0.8514 },
   "dishes": [
     {
@@ -147,7 +147,7 @@
     {
       "name": "Banku",
       "price": 17,
-      "img": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c"
+      "img": "https://i0.wp.com/www.gbcghanaonline.com/wp-content/uploads/2022/04/Banku.jpg"
     }
   ]
 },
@@ -158,26 +158,26 @@
     "id": 9,
     "name": "Cecilia's Kitchen",
     "city": "Takoradi",
-    "img": "/images/cecilia-kitchen.jpg",
+    "img": "https://c8.alamy.com/comp/2CEPN7A/soweto-south-africa-september-8-2018-professional-chefs-cooking-and-preparing-street-food-called-bunny-chow-at-food-festival-2CEPN7A.jpg",
     "tags": ["Restaurant"],
       "description": "A place where customers can enjoy prepared meals and beverages.",
     "location": { "lat": 4.8946, "lng": -1.7554 },
     "dishes": [
       { "name": "Eba & Egusi", "price": 20, "img": "https://eatwellabi.com/wp-content/uploads/2022/03/Efo-elegusi-cooking-15.jpg" },
-      { "name": "Fried Yam", "price": 12, "img": "/images/friedyam.jpg" }
+      { "name": "Fried Yam", "price": 12, "img": "https://cdn.shopify.com/s/files/1/0121/2950/1242/files/c9281fb6df7509634b7f7e90551199da_480x480.jpg?v=1623769792" }
     ]
   },
   {
     "id": 10,
     "name": "Comfort's Dishes",
     "city": "Ho",
-    "img": "/images/comfort-dishes.jpg",
+    "img": "https://c8.alamy.com/comp/2CEPN7W/soweto-south-africa-september-17-2017-diverse-african-judges-tasing-and-scoring-meals-at-cooking-competition-2CEPN7W.jpg",
      "tags": ["Local"],
       "description": "food for events, parties, and gatherings.",
     "location": { "lat": 6.6008, "lng": 0.4703 },
     "dishes": [
       { "name": "Abolo & Fish", "price": 16, "img": "https://i.ytimg.com/vi/Wn3KNn4wi3U/maxresdefault.jpg" },
-      { "name": "Akple & Okro", "price": 20, "img": "/images/akple.jpg" }
+      { "name": "Akple & Okro", "price": 20, "img": "https://homesweet1.home.blog/wp-content/uploads/2020/03/akple-7.jpg" }
     ]
   },
   {
@@ -188,7 +188,7 @@
     "location": { "lat": 6.0941, "lng": -0.2600 },
     "dishes": [
       { "name": "Jollof & Chicken", "price": 23, "img": "https://images.unsplash.com/photo-1549759594-0d842f402b4d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGZyaWVkJTIwY2hpY2tlbnxlbnwwfDB8MHx8fDI%3D" },
-      { "name": "Boiled Plantain & Kontomire", "price": 18, "img": "/images/kontomire.jpg" }
+      { "name": "Boiled Plantain & Kontomire", "price": 18, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRZk0ppKaEfPrfLJzLWpxPAxyyrnOnJM2gBA&s" }
     ]
   },
   {
@@ -198,8 +198,8 @@
     "img": "https://images.fliprogram.com/u/2023/09/29153245/Street-Food-4.webp?strip=all&lossy=1&ssl=1",
     "location": { "lat": 5.5900, "lng": -0.1900 },
     "dishes": [
-      { "name": "Red Red", "price": 15, "img": "/images/redred.jpg" },
-      { "name": "Gari Fortor", "price": 14, "img": "/images/gari.jpg" }
+      { "name": "Red Red", "price": 15, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf3Uz4P8_dYNcbIkowZOI7GT6L2GRw0J6VJg&s" },
+      { "name": "Gari Fortor", "price": 14, "img": "https://i.ytimg.com/vi/V7cR63mLkzA/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDLJVAQ68DV8sjfZYPhsQxnKcdtLw" }
     ]
   },
   {
@@ -209,8 +209,8 @@
     "img": "https://cdn.businessday.ng/2019/11/IMG-20191116-WA0007.jpg",
     "location": { "lat": 5.6700, "lng": -0.0200 },
     "dishes": [
-      { "name": "Rice & Stew", "price": 17, "img": "/images/ricestew.jpg" },
-      { "name": "Chinchinga", "price": 10, "img": "/images/chinchinga.jpg" }
+      { "name": "Rice & Stew", "price": 17, "img": "https://thumbs.dreamstime.com/b/close-up-african-beef-stew-plate-tomato-sauce-spices-herbs-served-rice-old-wooden-table-west-cuisine-156889376.jpg" },
+      { "name": "Chinchinga", "price": 10, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaEJHJ6p3vXNNvX00TiHcTqS-yXIzn3dIsag&s" }
     ]
   },
   {
@@ -220,8 +220,8 @@
     "img": "https://c8.alamy.com/comp/2B25X5C/a-food-vendor-on-a-street-in-lagos-nigeria-2B25X5C.jpg",
     "location": { "lat": 6.6930, "lng": -1.6200 },
     "dishes": [
-      { "name": "Fufu & Palmnut", "price": 24, "img": "/images/palmnut.jpg" },
-      { "name": "Banku & Groundnut Soup", "price": 21, "img": "/images/groundnut.jpg" }
+      { "name": "Fufu & Palmnut", "price": 24, "img": "https://i.ytimg.com/vi/syf73AM_ZyM/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBlUzL42iCDyotpbvmOcGEXyAQ2Pg" },
+      { "name": "Banku & Groundnut Soup", "price": 21, "img": "https://arkcleorich.com/wp-content/uploads/2023/11/723c61ae6341c8343b375a73253f7f44.jpeg" }
     ]
   },
   {
@@ -242,8 +242,8 @@
     "img": "https://ghanatalksbusiness.com/wp-content/uploads/2020/03/vendors.jpg",
     "location": { "lat": 7.3400, "lng": -2.3200 },
     "dishes": [
-      { "name": "Yam & Garden Egg Stew", "price": 20, "img": "/images/gardenegg.jpg" },
-      { "name": "Corn Dough Fufu", "price": 22, "img": "/images/fufu.jpg" }
+      { "name": "Yam & Garden Egg Stew", "price": 20, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu_UsSpIGo4IvLexnvd8hcNR1K9xQWStYdyg&s" },
+      { "name": "Corn Dough Fufu", "price": 22, "img": "https://www.goya.com/wp-content/uploads/2023/10/myplate-corn-fufu-ugali.jpg" }
     ]
   },
   {
@@ -264,8 +264,8 @@
     "img": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2c/c4/98/5f/caption.jpg?w=200&h=200&s=1",
     "location": { "lat": 6.5500, "lng": -0.7667 },
     "dishes": [
-      { "name": "Rice Balls & Groundnut Soup", "price": 22, "img": "/images/riceballs.jpg" },
-      { "name": "Plantain & Beans", "price": 16, "img": "/images/redred.jpg" }
+      { "name": "Rice Balls & Groundnut Soup", "price": 22, "img": "https://i0.wp.com/travelandmunchies.com/wp-content/uploads/2022/11/IMG_9895.jpg?fit=%2C&ssl=1" },
+      { "name": "Plantain & Beans", "price": 16, "img": "https://afrokitchennl.ca/wp-content/uploads/2020/11/beansplantain.jpg" }
     ]
   },
   {
@@ -275,8 +275,8 @@
     "img": "https://africanadishworld.com/wp-content/uploads/2020/08/jollof.png",
     "location": { "lat": 5.6080, "lng": -0.2150 },
     "dishes": [
-      { "name": "Jollof & Fried Chicken", "price": 24, "img": "/images/jollof.jpg" },
-      { "name": "Fried Plantain & Beans", "price": 17, "img": "/images/redred.jpg" }
+      { "name": "Jollof & Fried Chicken", "price": 24, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs4BsW0YrjbEAbbADeN5rCAS1cgHk0GKa_Aw&s" },
+      { "name": "Fried Plantain & Beans", "price": 17, "img": "https://i.ytimg.com/vi/PbLD8_-_2PI/maxresdefault.jpg" }
     ]
   },
    {
@@ -286,8 +286,8 @@
     "img": "https://i0.wp.com/3.bp.blogspot.com/-YM2oeLpKJPE/UqlZvXL5mEI/AAAAAAAAEI0/0WLvgW2phxY/s1600/sunkwa.JPG",
     "location": { "lat": 10.7850, "lng": -0.8500 },
     "dishes": [
-      { "name": "TZ & Green Soup", "price": 22, "img": "/images/tz.jpg" },
-      { "name": "Boiled Yam & Egg Stew", "price": 18, "img": "/images/yam.jpg" }
+      { "name": "TZ & Green Soup", "price": 22, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPIFAB08uTwIo1C2ohqDEHRvO2aHXM_WQPuKgA4oqnBxFRAD7A9XyuO7xNAhJeX_QPEOc&usqp=CAU" },
+      { "name": "Boiled Yam & Egg Stew", "price": 18, "img": "https://sisijemimah.com/wp-content/uploads/2016/09/IMG_7974.jpg" }
     ]
   },
   {
@@ -299,7 +299,7 @@
     "location": { "lat": 9.4080, "lng": -0.8500 },
     "dishes": [
       { "name": "Sandwiches", "price": 17, "img": "https://www.marthastewart.com/thmb/CeajAszijIWCydscfKu5CvjRxnQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ms-italian-grilled-sandwich-30a6e44ed8144f89b2627cae423edbf2.jpg" },
-      { "name": "Breakfast and Brunch", "price": 23, "img": "/images/groundnut.jpg" }
+      { "name": "Breakfast and Brunch", "price": 23, "img": "https://www.legnochicago.com/wp-content/uploads/2023/10/Legnochicago-A-Guide-For-Hosting-The-Perfect-Brunch-Party.jpg" }
     ]
   },
   {
@@ -381,8 +381,8 @@
     "img": "/images/rebecca-kitchen.jpg",
     "location": { "lat": 10.0600, "lng": -2.5000 },
     "dishes": [
-      { "name": "Tuo Zaafi & Ayoyo", "price": 20, "img": "/images/tz.jpg" },
-      { "name": "Rice & Groundnut Stew", "price": 19, "img": "/images/groundnut.jpg" }
+      { "name": "Tuo Zaafi & Ayoyo", "price": 20, "img": "https://tb-static.uber.com/prod/image-proc/processed_images/b84eb28f4754d8c8aa70dac2f8bf8a8c/5954bcb006b10dbfd0bc160f6370faf3.jpeg" },
+      { "name": "Rice & Groundnut Stew", "price": 19, "img": "https://www.preciouscore.com/wp-content/uploads/2020/09/African-Chicken-Peanut-Stew.jpg" }
     ]
   },
   {
@@ -392,8 +392,8 @@
     "img": "/images/rita-kitchen.jpg",
     "location": { "lat": 5.1070, "lng": -1.2450 },
     "dishes": [
-      { "name": "Fante Kenkey", "price": 15, "img": "/images/fantekenkey.jpg" },
-      { "name": "Palmnut Soup & Rice Balls", "price": 23, "img": "/images/palmnut.jpg" }
+      { "name": "Fante Kenkey", "price": 15, "img": "https://oceangreenvillas.com/wp-content/uploads/2024/08/maxresdefault-1.jpg" },
+      { "name": "Palmnut Soup & Rice Balls", "price": 23, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3lMqcr0LRwZ6AvGAktr3rDLkNYO51eNYYvA&s" }
     ]
   },
   {
@@ -403,8 +403,8 @@
     "img": "/images/salma-spot.jpg",
     "location": { "lat": 9.4100, "lng": -0.8520 },
     "dishes": [
-      { "name": "TZ & Goat Soup", "price": 24, "img": "/images/tz.jpg" },
-      { "name": "Fried Rice", "price": 18, "img": "/images/friedrice.jpg" }
+      { "name": "TZ & Goat Soup", "price": 24, "img": "https://adaidekitchen.com/wp-content/uploads/2024/03/Sisi-Jemimah-Pepper-Soup.jpg" },
+      { "name": "Fried Rice", "price": 18, "img": "https://images.getrecipekit.com/20220904015448-veg-20fried-20rice.png?aspect_ratio=16:9&quality=90&" }
     ]
   },
   {
@@ -414,8 +414,8 @@
     "img": "/images/sarah-kitchen.jpg",
     "location": { "lat": 10.7870, "lng": -0.8530 },
     "dishes": [
-      { "name": "TZ & Okro Soup", "price": 22, "img": "/images/tz.jpg" },
-      { "name": "Corn Dough & Beans", "price": 17, "img": "/images/beans.jpg" }
+      { "name": "TZ & Okro Soup", "price": 22, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaeErCkYacms1peJ7ckzMvlrKIDwZ8nG1FsQ&s" },
+      { "name": "Corn Dough & Beans", "price": 17, "img": "https://www.myburntorange.com/wp-content/uploads/2020/06/20191026_140623-1080x810.jpg" }
     ]
   },
   {
@@ -425,8 +425,8 @@
     "img": "/images/selina-kitchen.jpg",
     "location": { "lat": 7.5833, "lng": -1.9333 },
     "dishes": [
-      { "name": "Fufu & Light Soup", "price": 23, "img": "/images/fufu.jpg" },
-      { "name": "Kokonte & Groundnut", "price": 20, "img": "/images/kokonte.jpg" }
+      { "name": "Fufu & Light Soup", "price": 23, "img": "https://i0.wp.com/www.savourous.com/wp-content/uploads/2021/02/foufouin4.jpg?w=1254&ssl=1" },
+      { "name": "Kokonte & Groundnut", "price": 20, "img": "https://i.ytimg.com/vi/syf73AM_ZyM/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBlUzL42iCDyotpbvmOcGEXyAQ2Pg" }
     ]
   },
   {
@@ -436,8 +436,8 @@
     "img": "/images/serwaa-spot.jpg",
     "location": { "lat": 5.6090, "lng": -0.2000 },
     "dishes": [
-      { "name": "Jollof & Grilled Gizzard", "price": 24, "img": "/images/gizzard.jpg" },
-      { "name": "Boiled Yam & Palava Sauce", "price": 19, "img": "/images/palava.jpg" }
+      { "name": "Jollof & Grilled Gizzard", "price": 24, "img": "https://i.ytimg.com/vi/q1ceHucIqSc/maxresdefault.jpg" },
+      { "name": "Boiled Yam & Palava Sauce", "price": 19, "img": "https://cookingtutorialsgh.wordpress.com/wp-content/uploads/2017/04/yam.png" }
     ]
   },
   {
@@ -447,8 +447,8 @@
     "img": "/images/sika-kitchen.jpg",
     "location": { "lat": 6.5540, "lng": -0.7650 },
     "dishes": [
-      { "name": "Banku & Pepper", "price": 17, "img": "/images/banku.jpg" },
-      { "name": "Rice Balls & Palmnut Soup", "price": 22, "img": "/images/riceballs.jpg" }
+      { "name": "Banku & Pepper", "price": 17, "img": "https://images.bolt.eu/store/2021/2021-12-29/e6e59789-1650-4332-8725-02a1d19021d7.jpeg" },
+      { "name": "Rice Balls & Palmnut Soup", "price": 22, "img": "https://i.ytimg.com/vi/8f1_CWJshEQ/maxresdefault.jpg" }
     ]
   },
   {
@@ -458,8 +458,8 @@
     "img": "/images/suzzy-meals.jpg",
     "location": { "lat": 5.6710, "lng": -0.0190 },
     "dishes": [
-      { "name": "Ampesi & Garden Egg Stew", "price": 20, "img": "/images/ampesi.jpg" },
-      { "name": "Fufu & Fish Soup", "price": 21, "img": "/images/fishsoup.jpg" }
+      { "name": "Ampesi & Garden Egg Stew", "price": 20, "img": "https://afrifoodnetwork.com/wp-content/uploads/2023/10/garden-egg-stew-scaled.jpg" },
+      { "name": "Fufu & Fish Soup", "price": 21, "img": "https://i.ytimg.com/vi/FQyy20eo2T0/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDYGz3uZWcPUOM0K6rFy8NNxOWF3Q" }
     ]
   },
   {
@@ -469,8 +469,8 @@
     "img": "/images/tina-treats.jpg",
     "location": { "lat": 5.1080, "lng": -1.2460 },
     "dishes": [
-      { "name": "Kenkey & Stew", "price": 15, "img": "/images/kenkey.jpg" },
-      { "name": "Boiled Eggs & Sauce", "price": 10, "img": "/images/egg.jpg" }
+      { "name": "Kenkey & Stew", "price": 15, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdEPpEFUNgPdZC7IkJI_ma0GgnWztR1cvONQ&s" },
+      { "name": "Boiled Eggs & Sauce", "price": 10, "img": "https://whisperofyum.com/wp-content/uploads/2022/01/Tik-Tok-Egg-Boil-500x375.png" }
     ]
   },
   {
@@ -480,8 +480,8 @@
     "img": "/images/veronica-meals.jpg",
     "location": { "lat": 6.6890, "lng": -1.6250 },
     "dishes": [
-      { "name": "Yam Balls & Spicy Sauce", "price": 20, "img": "/images/yamballs.jpg" },
-      { "name": "Gari Fortor", "price": 14, "img": "/images/gari.jpg" }
+      { "name": "Yam Balls & Spicy Sauce", "price": 20, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhj6GQTLqeunKBoOghPvR0tdPA51NnjhvO5w&s" },
+      { "name": "Gari Fortor", "price": 14, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ0Ivlq42y-tcSDDjpoHoMmy_6G_fhMrSGXQ&s" }
     ]
   },
   {
@@ -491,8 +491,8 @@
     "img": "/images/vida-place.jpg",
     "location": { "lat": 7.1520, "lng": 0.4720 },
     "dishes": [
-      { "name": "Akple & Okro Soup", "price": 20, "img": "/images/akple.jpg" },
-      { "name": "Cornmeal Porridge", "price": 12, "img": "/images/porridge.jpg" }
+      { "name": "Akple & Okro Soup", "price": 20, "img": "https://eatwellabi.com/wp-content/uploads/2019/04/IMG_6793.jpg" },
+      { "name": "Cornmeal Porridge", "price": 12, "img": "https://littlesunnykitchen.com/wp-content/uploads/2019/06/Cornmeal-Porridge-04.jpg" }
     ]
   },
   {
@@ -502,8 +502,8 @@
     "img": "/images/wendy-grill.jpg",
     "location": { "lat": 4.8955, "lng": -1.7540 },
     "dishes": [
-      { "name": "Grilled Chicken & Jollof", "price": 25, "img": "/images/chicken.jpg" },
-      { "name": "Kelewele & Groundnuts", "price": 11, "img": "/images/kelewele.jpg" }
+      { "name": "Grilled Chicken & Jollof", "price": 25, "img": "https://t4.ftcdn.net/jpg/07/58/68/83/360_F_758688398_m6qiNRHlhEjGHZzli8bKPNdxoXdnSSzf.jpg" },
+      { "name": "Kelewele & Groundnuts", "price": 11, "img": "https://business-inventory.s3.eu-central-1.amazonaws.com/ac659207-f0ee-5d06-87a9-12d9f32c8e90" }
     ]
   },
   {
@@ -513,8 +513,8 @@
     "img": "/images/yaw-kitchen.jpg",
     "location": { "lat": 7.3360, "lng": -2.3310 },
     "dishes": [
-      { "name": "Fufu & Goat Meat", "price": 26, "img": "/images/goat.jpg" },
-      { "name": "Cocoyam & Spinach Stew", "price": 19, "img": "/images/spinach.jpg" }
+      { "name": "Fufu & Goat Meat", "price": 26, "img": "https://i.ytimg.com/vi/dSjo31UmLSE/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAcxrgGmhl_dpKIylDXVs59JUNo3Q" },
+      { "name": "Cocoyam & Spinach Stew", "price": 19, "img": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiepj3hvj9750nE-14xLlYMYezm3t1VKzHz0YF-AtMv4RMSqcTKZxsmGmgxLGhdUqQJ-JwHRXrxAiL9YRJORmxRWhRYKxMMvnAH9Ilxzbbh-cHTH_y7TM7s_OEhXzvSnHMW45f72MG60sg/w1200-h630-p-k-no-nu/%255BUNSET%255D" }
     ]
   },
   {
@@ -571,12 +571,11 @@
       { "name": "Banku & Pepper Sauce", "price": 17, "img": "/images/banku.jpg" },
       { "name": "Grilled Pork", "price": 26, "img": "/images/pork.jpg" }
     ]
+  },
+  {
+
   }
 ]
-  
-
-
-
 
 
 

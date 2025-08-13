@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import LoaderSpinner from "../components/LoaderSpinner";
 import { Menu, X, Search } from "lucide-react";
 import DishCarousel from '../components/DishCarousel';
 import SearchBar from "../components/searchBar";
@@ -11,6 +10,7 @@ import Staples from "../components/NeighborhoodStaples";
 import vendorsData from "../api/vendors.json";
 import Grocery from "../components/Grocery";
 import vendorData from "../api/vendors.json";
+import DashboardSkeleton from "../components/DashboardSkeleton";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
@@ -50,14 +50,14 @@ const Dashboard = () => {
 
   if (loading) {
     return (
-      <main className="flex justify-center items-center h-64">
-        <LoaderSpinner size="lg" />
+      <main className="p-4">
+        <DashboardSkeleton />
       </main>
     );
   }
 
   return (
-    <div className="relative bg-gradient-to-b bg-amber-50  text-gray-800">
+    <div className="relative bg-gradient-to-b bg-amber-50 text-gray-800">
       {/* Header */}
       <header className="sticky top-0 z-50 h-[60px] bg-orange-100 md:rounded-br-2xl flex items-center justify-between px-4 md:px-16">
 
@@ -242,7 +242,7 @@ const Dashboard = () => {
         <h3 className="font-sans text-3xl font-medium inter">Save big on groceries</h3>
      </div>
 
-     <div>
+     <div className="ml-[4rem] pb-[5rem]">
         <Grocery vendors={vendorData} />
      </div>
   
