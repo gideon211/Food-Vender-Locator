@@ -21,6 +21,7 @@ public class Vendor {
     @OneToOne
     @JsonIgnore
     private User user;
+    private String RestaurantEmail;
     private String phoneNumber;
     private String imageUrl;
     private String restaurantType;

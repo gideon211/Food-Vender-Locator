@@ -15,25 +15,25 @@ public class VendorController {
     public VendorController(VendorService service)
     {this.service = service;}
 
-//    @PostMapping("/add")
-//    public Vendor addVendor(@RequestBody Vendor vendor){
-//        return service.addVendor(vendor);
-//    }
+    @PostMapping("/add")
+    public Vendor addVendor(@RequestBody Vendor vendor){
+        return service.addVendor(vendor);
+    }
 
     @GetMapping("/vendors")
     public List<Vendor> getAllVendors(){
         return service.getAllVendors();
     }
 
-//    @PutMapping("/update/{email}")
-//    public Vendor updateVendor(@PathVariable String email, @RequestBody Vendor vendor){
-//        return service.updateVendor(email,vendor);
-//    }
-//
-//    @DeleteMapping("/{email}")
-//    public void deleteVendor(@PathVariable String email){
-//        service.deleteEmail(email);
-//    }
+    @PutMapping("/update/{email}")
+    public Vendor updateVendor(@PathVariable String email, @RequestBody Vendor vendor){
+        return service.updateVendor(email,vendor);
+    }
+
+    @DeleteMapping("/{email}")
+    public void deleteVendor(@PathVariable String email){
+        service.deleteEmail(email);
+    }
 
 
     @GetMapping("/vendors/nearby")
