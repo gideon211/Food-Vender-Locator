@@ -186,7 +186,7 @@
   {
     "id": 11,
      "description": "A mobile kitchen selling ready-to-eat meals and snacks.",
-     "rating": 4.1,
+     "rating": 4.5,
     "name": "Dede's Spot",
     "city": "Koforidua",
     "img": "https://media.istockphoto.com/id/2185584059/photo/waitress-working-at-a-food-truck-using-a-digital-tablet.webp?a=1&b=1&s=612x612&w=0&k=20&c=a0MbNxQhjktKWTA-ml_qQc7b1FfYgoKACTbstvra814=",
@@ -524,13 +524,15 @@
   },
   {
     "id": 41,
-    "name": "https://thumbs.dreamstime.com/b/portrait-african-american-man-wearing-apron-smiling-serving-food-truck-street-concept-347883789.jpg",
+    "name": "Mensah's Meals",
+    "rating": 4.5,
+     "description": "A mobile kitchen selling ready-to-eat meals and snacks.",
     "city": "Wa",
-    "img": "/images/yaw-mensah.jpg",
+    "img": "https://thumbs.dreamstime.com/b/portrait-african-american-man-wearing-apron-smiling-serving-food-truck-street-concept-347883789.jpg",
     "location": { "lat": 10.0580, "lng": -2.5010 },
     "dishes": [
-      { "name": "TZ & Fish Soup", "price": 21, "img": "/images/tz.jpg" },
-      { "name": "Gari & Beans", "price": 15, "img": "/images/redred.jpg" }
+      { "name": "Sushi", "price": 21, "img": "https://cdn.britannica.com/52/128652-050-14AD19CA/Maki-zushi.jpg" },
+      { "name": "Noodle", "price": 15, "img": "https://www.ohmyveg.co.uk/wp-content/uploads/2024/10/paneer-hakka-noodles.jpg" }
     ]
   },
   {

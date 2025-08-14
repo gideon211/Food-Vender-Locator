@@ -216,9 +216,17 @@ export default function VendorDetail() {
                 <h3 className="text-lg font-medium text-gray-900">
                   {item.name}
                 </h3>
+                <div className="flex justify-between items-center mt-2">
                 <span className="inline-block mt-3 px-3 py-1 text-sm font-semibold bg-orange-200 text-orange-700 rounded-full">
                   ₵{(parseFloat(item?.price) || 0).toFixed(2)}
                 </span>
+
+                <div className=""><h1 className="text-4xl">♡</h1></div>
+
+                
+                </div>
+
+                
               </div>
             </div>
           ))}

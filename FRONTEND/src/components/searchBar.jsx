@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import vendors from "../api/vendors.json";
 import { Link } from "react-router-dom";
 
 export default function SearchBar() {
   const [query, setQuery] = useState("");
   const [filtered, setFiltered] = useState([]);
+
+
+
+
+
+
 
   const handleSearch = (e) => {
     const value = e.target.value;
@@ -14,10 +20,18 @@ export default function SearchBar() {
       setFiltered([]);
       return;
     }
+const results = vendors.filter(vendor => {
+  const nameMatch = (vendor.name || "").toLowerCase().includes(value.toLowerCase());
+  const cityMatch = (vendor.city || "").toLowerCase().includes(value.toLowerCase());
+  const tagMatch = (vendor.tags || []).some(tag =>
+    (tag || "").toLowerCase().includes(value.toLowerCase())
+  );
 
-    const results = vendors.filter((vendor) =>
-      vendor.name.toLowerCase().includes(value.toLowerCase())
-    );
+  return nameMatch || cityMatch || tagMatch;
+});
+
+
+
 
     setFiltered(results);
   };
