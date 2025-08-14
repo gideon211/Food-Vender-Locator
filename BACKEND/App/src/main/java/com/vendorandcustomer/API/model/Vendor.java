@@ -16,7 +16,7 @@ public class Vendor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String RestaurantName;
 
     @OneToOne
     @JsonIgnore
@@ -25,7 +25,6 @@ public class Vendor {
     private String imageUrl;
     private String restaurantType;
     private String description;
-    private String password;
     private Double latitude;
     private Double longitude;
 
