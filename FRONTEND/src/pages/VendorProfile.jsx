@@ -20,6 +20,9 @@ export default function VendorProfileForm() {
   const [loadingLocation, setLoadingLocation] = useState(false);
   const [locationSuccess, setLocationSuccess] = useState(false);
 
+  // NEW — State for multiple dishes
+  const [dishes, setDishes] = useState([{ name: "", image: null }]);
+
   const handleGetLocation = () => {
     setLoadingLocation(true);
     setLocationSuccess(false);
@@ -32,7 +35,7 @@ export default function VendorProfileForm() {
         });
         setLocationSuccess(true);
         setLoadingLocation(false);
-        toast.success("Location fetched");
+        toast.success("Feched Successfully");
       },
       (error) => {
         console.error("Location error:", error);
@@ -42,53 +45,78 @@ export default function VendorProfileForm() {
     );
   };
 
+  // NEW — Handle dish changes
+  const handleDishChange = (index, field, value) => {
+    const updated = [...dishes];
+    updated[index][field] = value;
+    setDishes(updated);
+  };
+
+  // NEW — Add new dish row
+  const handleAddDish = () => {
+    setDishes([...dishes, { name: "", image: null }]);
+  };
+
+  // NEW — Remove dish row
+  const handleRemoveDish = (index) => {
+    setDishes(dishes.filter((_, i) => i !== index));
+  };
+
   return (
-    <div className="flex flex-col lg:flex-row w-full min-h-screen">
+    <div className="flex flex-col lg:flex-row w-ful min-h-screen">
       {/* Left Side */}
       <div
-        className="relative w-full lg:w-1/2 bg-cover bg-center"
+        className="relative w-full lg:w-full bg-cover bg-center"
         style={{
           backgroundImage:
             "url('https://images.unsplash.com/photo-1726137570707-528402375b7b?w=500&auto=format&fit=crop&q=60')",
         }}
       >
         <div className="absolute inset-0 bg-black/50 bg-opacity-40 flex items-center px-10 lg:px-24">
-          <div className="text-white max-w-lg">
+          <div className="text-white max-w-2xl">
             <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
               Become an FVL merchant and grow your revenue
             </h1>
             <p className="mt-6 text-lg leading-relaxed">
-              Our merchants enjoy more orders, increased sales, and unmatched visibility. Sign up today and reap the benefits!
+              Our merchants enjoy more orders, increased sales, and unmatched
+              visibility. Sign up today and reap the benefits!
             </p>
           </div>
         </div>
       </div>
 
       {/* Right Side */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center bg-white p-6 lg:p-12">
-        <div className="w-full max-w-xl bg-white rounded-xl shadow-lg p-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-2">
+      <div className="w-full lg:w-full flex  justify-center bg-amber-50 p-6 lg:p-12">
+        <div className="w-full max-w-xl bg-amber-50 rounded-md  p-8">
+          <h2 className="text-3xl font-semibold text-gray-900 mb-2 leading-4xl">
             Let us help your business grow!
           </h2>
           <p className="text-sm text-gray-600 mb-6">
-            Already a partner? <a href="#" className="text-green-600 font-medium">Log in</a>
+            Already a partner?{" "}
+            <a href="#" className="text-orange-400 font-medium">
+              Log in
+            </a>
           </p>
 
           <form className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
             {/* Business Name */}
             <div>
-              <label className="block text-gray-800 font-medium mb-1">Business name</label>
+              <label className="block text-gray-800 font-medium mb-1">
+                Business name
+              </label>
               <input
                 type="text"
                 placeholder="Enter business name"
-                className="bg-gray-100 border rounded-md px-4 py-3 w-full"
+                className="bg-white border rounded-md px-4 py-3 w-full"
               />
             </div>
 
             {/* Business Type */}
             <div>
-              <label className="block text-gray-800 font-medium mb-1">Business type</label>
-              <select className="bg-gray-100 border rounded-md px-4 py-3 w-full text-gray-700">
+              <label className="block text-gray-800 font-medium mb-1">
+                Business type
+              </label>
+              <select className="bg-white border rounded-md px-4 py-3 w-full text-gray-700">
                 <option value="">Select business type</option>
                 <option value="restaurant">Restaurant</option>
                 <option value="local">Local</option>
@@ -97,11 +125,13 @@ export default function VendorProfileForm() {
 
             {/* Address */}
             <div className="md:col-span-2">
-              <label className="block text-gray-800 font-medium mb-1">Address</label>
+              <label className="block text-gray-800 font-medium mb-1">
+                City
+              </label>
               <input
                 type="text"
                 placeholder="Enter your venue address"
-                className="bg-gray-100 border rounded-md px-4 py-3 w-full"
+                className="bg-white border rounded-md px-4 py-3 w-full"
               />
             </div>
 
@@ -110,84 +140,111 @@ export default function VendorProfileForm() {
               <button
                 type="button"
                 onClick={handleGetLocation}
-                className="w-full border bg-gray-100 hover:bg-gray-200 rounded-md px-4 py-3 text-left"
+                className="w- border bg-orange-200 hover:bg-orange-200 rounded-md px-4 py-3 text-left"
               >
                 {loadingLocation
                   ? "Fetching location..."
                   : location.latitude && location.longitude
-                  ? `Lat: ${location.latitude.toFixed(6)}, Lng: ${location.longitude.toFixed(6)}`
+                  ? `Lat: ${location.latitude.toFixed(
+                      6
+                    )}, Lng: ${location.longitude.toFixed(6)}`
                   : "Get venue location (GPS)"}
               </button>
             </div>
 
-            {/* Post Code */}
+            {/* Vendor Profile Image */}
             <div className="md:col-span-2">
-              <label className="block text-gray-800 font-medium mb-1">Post code</label>
+              <label className="block text-gray-800 font-medium mb-1">
+                Profile image
+              </label>
               <input
-                type="text"
-                placeholder="Enter post code"
-                className="bg-gray-100 border rounded-md px-4 py-3 w-full"
+                type="file"
+                accept="image/*"
+                className="bg-white border rounded-md px-4 py-3 w-full cursor-pointer"
               />
+              <p className="text-xs text-gray-500 mt-1">
+                Upload a clear image of your restaurant, shop, or logo.
+              </p>
             </div>
 
-            {/* Email */}
-            <div className="md:col-span-2">
-              <label className="block text-gray-800 font-medium mb-1">Email</label>
-              <input
-                type="email"
-                placeholder="Enter email address"
-                className="bg-gray-100 border rounded-md px-4 py-3 w-full"
-              />
-              <p className="text-xs text-gray-500 mt-1">Main Contact person email</p>
-            </div>
+            {/* NEW — Multiple Dishes Section */}
+{/* Dishes Section */}
+<div className="mt-4">
+  <h3 className="text-lg font-semibold mb-3">Dishes</h3>
+  
+  {dishes.map((dish, index) => (
+    <div key={index} className="flex gap-4 mb-4">
+      {/* Dish Name */}
+      <input
+        type="text"
+        placeholder="Dish Name"
+        value={dish.name}
+        onChange={(e) =>
+          handleDishChange(index, "name", e.target.value)
+        }
+        className="border p-2 flex-1 rounded"
+      />
+
+      {/* Dish Price */}
+      <input
+        type="number"
+        placeholder="Price"
+        value={dish.price}
+        onChange={(e) =>
+          handleDishChange(index, "price", e.target.value)
+        }
+        className="border p-2 w-28 rounded"
+      />
+
+      {/* Dish Image */}
+      <input
+        type="file"
+        accept="image/*"
+        onChange={(e) =>
+          handleDishImageChange(index, e.target.files[0])
+        }
+        className="border p-2 w-38 text-xm"
+      />
+    </div>
+  ))}
+
+<button
+  type="button"
+  onClick={handleAddDish}  // ✅ This matches your defined function
+  className="bg-orange-300 text-white px-4 py-2 rounded hover:bg-orange-400"
+>
+  +
+</button>
+
+</div>
+
 
             {/* Phone Number */}
             <div className="md:col-span-2">
-              <label className="block text-gray-800 font-medium mb-1">Phone number</label>
+              <label className="block text-gray-800 font-medium mb-1">
+                Phone number
+              </label>
               <div className="flex items-center gap-2">
-                <select className="bg-gray-100 border rounded-md px-4 py-3 text-sm">
+                <select className="bg-white border rounded-md px-4 py-3 text-sm">
                   <option value="+233">🇬🇭 +233</option>
                 </select>
                 <input
                   type="text"
                   placeholder="Mobile number"
-                  className="bg-gray-100 border rounded-md px-4 py-3 w-full text-sm"
+                  className="bg-white border rounded-md px-4 py-3 w-full text-sm"
                 />
               </div>
             </div>
 
             {/* Submit */}
             <div className="md:col-span-2">
-              <button className="mt-6 bg-green-500 hover:bg-green-600 text-white w-full py-3 rounded-full font-medium">
+              <button className="mt-6 bg-orange-500 hover:bg-orange-600 text-white w-full py-3 rounded-full font-medium cursor-pointer">
                 Get started
               </button>
             </div>
           </form>
-
-          {/* Map Preview */}
-          {locationSuccess && (
-            <div className="mt-6">
-              <MapContainer
-                center={[location.latitude, location.longitude]}
-                zoom={15}
-                scrollWheelZoom={false}
-                style={{ height: "200px", borderRadius: "0.5rem" }}
-              >
-                <TileLayer
-                  attribution='&copy; OpenStreetMap contributors'
-                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                <Marker position={[location.latitude, location.longitude]}>
-                  <Popup>Your business location</Popup>
-                </Marker>
-              </MapContainer>
-            </div>
-          )}
         </div>
       </div>
-
-      {/* Feature Section */}
-    
     </div>
   );
 }

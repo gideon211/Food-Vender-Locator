@@ -119,7 +119,7 @@ const Signup = () => {
           )}
 
           <form onSubmit={handleSubmit} className="flex flex-col items-center">
-            <label className="bg-orange-50 w-64 p-4 flex items-center mb-3 rounded-md">
+            <label className="bg-orange-50 w-64 p-2 flex items-center mb-3 rounded-md">
               <input
                 type="text"
                 name="name"
@@ -157,7 +157,7 @@ const Signup = () => {
               />
             </label>
 
-            <label className="bg-orange-50 w-64 p-2 flex items-center mb-3 rounded-md">
+            <label className="bg-orange-50 w-64 p-4 flex items-center mb-3 rounded-md text-center">
               <input
                 type="password"
                 name="confirmPassword"
@@ -165,7 +165,7 @@ const Signup = () => {
                 required
                 value={formData.confirmPassword}
                 onChange={handleChange}
-                className="bg-transparent outline-none text-sm flex-1 text-gray-800"
+                className="bg-transparent outline-none text-sm flex-1 text-gray-800 "
               />
             </label>
 
@@ -174,7 +174,7 @@ const Signup = () => {
               disabled={loading}
               className="border-2 border-orange-500 text-orange-600 rounded-full px-12 py-2 font-semibold hover:bg-orange-500 hover:text-white disabled:opacity-50 transition-all duration-200"
             >
-              {loading ? <LoaderSpinner size="sm" color="gray" /> : "Sign Up"}
+              {loading ? <LoaderSpinner /> : "Sign Up"}
             </button>
           </form>
 

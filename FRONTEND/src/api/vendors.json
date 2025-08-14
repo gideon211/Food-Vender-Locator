@@ -2,6 +2,7 @@
   {
     "id": 1,
     "name": "Ama's Meals",
+    "rating": 4.5,
     "city": "Accra",
      "tags": ["Local"],
       "description": "Delicious Ghanaian classics served fresh every day.",
@@ -16,6 +17,7 @@
     "id": 2,
     "name": "Abena's Kitchen",
     "city": "Kumasi",
+    "rating": 3.5,
      "tags": ["Fast-Food"],
       "description": "A quick-service eatery offering burgers, fries, sandwiches, and other rapidly prepared items.",
     "img": "https://images.unsplash.com/photo-1536251670848-277d4c02ebc6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZCUyMHZlbmRvcnxlbnwwfDF8MHx8fDI%3D",
@@ -28,6 +30,7 @@
  {
   "id": 3,
   "name": "Akua's Spot",
+  "rating": 4.1,
   "city": "Cape Coast",
    "tags": [ "Family Friendly"],
     "description": "classics served fresh every day.",
@@ -182,6 +185,8 @@
   },
   {
     "id": 11,
+     "description": "A mobile kitchen selling ready-to-eat meals and snacks.",
+     "rating": 4.1,
     "name": "Dede's Spot",
     "city": "Koforidua",
     "img": "https://media.istockphoto.com/id/2185584059/photo/waitress-working-at-a-food-truck-using-a-digital-tablet.webp?a=1&b=1&s=612x612&w=0&k=20&c=a0MbNxQhjktKWTA-ml_qQc7b1FfYgoKACTbstvra814=",
@@ -307,11 +312,11 @@
     "name": "The Melt",
     "city": "Takoradi",
     "rating": 4.2,
-    "img": "/images/maame-esi.jpg",
+    "img": "https://nowtoronto.com/wp-content/uploads/2022/01/afrobeatkitchen.jpg",
     "location": { "lat": 4.9000, "lng": -1.7600 },
     "dishes": [
       { "name": "Chicken", "price": 16, "img": "https://cdn.loveandlemons.com/wp-content/uploads/2023/12/easy-vegetarian-dinner-recipes.jpg" },
-      { "name": "Vegetarian Friendly", "price": 18, "img": "/images/beans.jpg" }
+      { "name": "Vegetarian Friendly", "price": 18, "img": "https://img.taste.com.au/48O_UaHc/taste/2018/12/canned-legumes-ypantry-staple-145632-3.jpg" }
     ]
   },
   {
@@ -319,11 +324,11 @@
     "name": "Nana’s Kitchen",
     "rating": 4.0,
     "city": "Kumasi",
-    "img": "/images/nana-kitchen.jpg",
+    "img": "https://thumbs.dreamstime.com/b/diverse-african-vendors-cooking-serving-various-bread-based-street-food-outdoor-festival-soweto-south-africa-september-189100576.jpg",
     "location": { "lat": 6.6910, "lng": -1.6230 },
     "dishes": [
-      { "name": "Mexican", "price": 26, "img": "https://www.espressomykitchen.com/wp-content/uploads/2024/04/EMK-The-Ultimate-California-Burrito-hero.jpg" },
-      { "name": "Burrito", "price": 17, "img": "/images/porridge.jpg" }
+      { "name": "Mexican", "price": 26, "img": "https://hips.hearstapps.com/hmg-prod/images/pozole-index-655b86b9eeb3f.jpg?crop=0.8891532031585555xw:1xh;center,top&resize=1200:*" },
+      { "name": "Burrito", "price": 17, "img": "https://images.ctfassets.net/6ilzexksnph5/LFE92EbbZzwVso2X8w2tT/a0ee1009dc2e9bfe4122b1d7fb14ecb9/Spiced_Falafel_and_Vegetable_Burrito.png?w=2000&h=1500&fm=webp&fit=thumb&q=100" }
     ]
   },
   {
@@ -331,11 +336,11 @@
     "name": "Mr. Charlie's",
     "city": "Ho",
     "rating": 4.9,
-    "img": "/images/obaa-yaa.jpg",
+    "img": "https://thumbs.dreamstime.com/b/johannesburg-south-africa-may-african-male-vendor-selling-take-out-food-outdoor-stall-farmer-s-market-184195435.jpg",
     "location": { "lat": 6.6020, "lng": 0.4750 },
     "dishes": [
       { "name": "Plant based", "price": 21, "img": "https://keviniscooking.com/wp-content/uploads/2023/08/Quesabirria-Tacos-square.jpg" },
-      { "name": "Tacos", "price": 12, "img": "/images/ricewater.jpg" }
+      { "name": "Tacos", "price": 12, "img": "https://embed.widencdn.net/img/beef/gcuz19twra/1120x840px/beef-steak-soft-tacos-horizontal.tif?keep=c&u=7fueml" }
     ]
   },
   {
@@ -343,11 +348,11 @@
     "name": "Pancho Villa Taqueria",
     "city": "Koforidua",
     "rating": 3.5,
-    "img": "/images/patience-dishes.jpg",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/5/59/Taqueria.jpg",
     "location": { "lat": 6.0960, "lng": -0.2580 },
     "dishes": [
       { "name": "Banku & Tilapia", "price": 25, "img": "https://afrifoodnetwork.com/wp-content/uploads/2023/07/Oven-baked-tilapia-recipe-scaled.jpeg" },
-      { "name": "Steak Grills", "price": 8, "img": "/images/gari.jpg" }
+      { "name": "Steak Grills", "price": 8, "img": "https://images.getrecipekit.com/20230719140431-perfectly-grilled-t-bone-steak-recipe.jpg?aspect_ratio=4:3&quality=90&" }
     ]
   },
   {
@@ -355,11 +360,11 @@
     "name": "Creepes n Cole",
     "city": "Sunyani",
     "rating": 3.0,
-    "img": "/images/peace-kitchen.jpg",
+    "img": "https://thumbs.dreamstime.com/b/african-male-vendor-working-take-out-food-outdoor-stall-farmer-s-market-johannesburg-south-africa-may-192082437.jpg",
     "location": { "lat": 7.3350, "lng": -2.3320 },
     "dishes": [
       { "name": "Fried Yam & Chofi", "price": 20, "img": "https://i.pinimg.com/736x/d6/c5/0b/d6c50befad73b66b80a38e8f8f05940f.jpg" },
-      { "name": "Omo Tuo & Peanut Soup", "price": 22, "img": "/images/omo.jpg" }
+      { "name": "Omo Tuo & Peanut Soup", "price": 22, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHhUyCrlfkwa-Gs5XcYqW2P5mo3JmQwmHnyw&s" }
     ]
   },
   {
@@ -367,11 +372,11 @@
     "name": "Quophi’s Grill",
     "city": "Tema",
     "rating": 4.1,
-    "img": "/images/quophi-grill.jpg",
+    "img": "https://thumbs.dreamstime.com/z/diverse-african-vendors-cooking-serving-various-bread-based-street-food-outdoor-festival-soweto-south-africa-september-194031956.jpg",
     "location": { "lat": 5.6750, "lng": -0.0250 },
     "dishes": [
       { "name": "Grilled Guinea Fowl", "price": 28, "img": "https://thumbs.dreamstime.com/z/grilled-guinea-fowl-herbs-spices-butcher-board-cooked-game-bird-orange-background-top-view-grilled-guinea-fowl-265997682.jpg" },
-      { "name": "Banku & Hot Pepper", "price": 18, "img": "/images/banku.jpg" }
+      { "name": "Banku & Hot Pepper", "price": 18, "img": "https://i.ytimg.com/vi/v1EjaUf1fnE/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCv339_o-QCOsOku-DOJ1oouP_oVg" }
     ]
   },
   {
@@ -389,7 +394,7 @@
     "id": 29,
     "name": "Rita’s Kitchen",
     "city": "Cape Coast",
-    "img": "/images/rita-kitchen.jpg",
+    "img": "https://koopdesign.co.za/wp-content/uploads/2014/05/VENDOR-TROLLEYS-16.jpg",
     "location": { "lat": 5.1070, "lng": -1.2450 },
     "dishes": [
       { "name": "Fante Kenkey", "price": 15, "img": "https://oceangreenvillas.com/wp-content/uploads/2024/08/maxresdefault-1.jpg" },
@@ -400,7 +405,7 @@
     "id": 30,
     "name": "Salma's Spot",
     "city": "Tamale",
-    "img": "/images/salma-spot.jpg",
+    "img": "https://img.freepik.com/free-photo/medium-shot-smiley-woman-market_23-2148789681.jpg?semt=ais_hybrid&w=740&q=80",
     "location": { "lat": 9.4100, "lng": -0.8520 },
     "dishes": [
       { "name": "TZ & Goat Soup", "price": 24, "img": "https://adaidekitchen.com/wp-content/uploads/2024/03/Sisi-Jemimah-Pepper-Soup.jpg" },
@@ -411,7 +416,7 @@
     "id": 31,
     "name": "Sarah's Local Kitchen",
     "city": "Bolgatanga",
-    "img": "/images/sarah-kitchen.jpg",
+    "img": "https://thumbs.dreamstime.com/b/diverse-african-vendors-cooking-serving-various-bread-based-street-food-outdoor-festival-soweto-south-africa-september-183745287.jpg",
     "location": { "lat": 10.7870, "lng": -0.8530 },
     "dishes": [
       { "name": "TZ & Okro Soup", "price": 22, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaeErCkYacms1peJ7ckzMvlrKIDwZ8nG1FsQ&s" },
@@ -422,7 +427,7 @@
     "id": 32,
     "name": "Selina's Kitchen",
     "city": "Techiman",
-    "img": "/images/selina-kitchen.jpg",
+    "img": "https://media.gettyimages.com/id/2155981692/photo/students-purchasing-barbecued-meat-froma-street-vendor.jpg?s=612x612&w=gi&k=20&c=tAuMk7ENpHgW_4JlOMAZfJ1bwOjmm0mm5V2_2j2W5Gk=",
     "location": { "lat": 7.5833, "lng": -1.9333 },
     "dishes": [
       { "name": "Fufu & Light Soup", "price": 23, "img": "https://i0.wp.com/www.savourous.com/wp-content/uploads/2021/02/foufouin4.jpg?w=1254&ssl=1" },
@@ -433,7 +438,7 @@
     "id": 33,
     "name": "Serwaa's Spot",
     "city": "Accra",
-    "img": "/images/serwaa-spot.jpg",
+    "img": "https://media.gettyimages.com/id/2155981792/photo/a-black-female-student-is-served-grilled-chicken-by-a-street-vendor.jpg?s=612x612&w=gi&k=20&c=gyBykQGdIGDrlP8InM97x4bc2Um_5zzUgdZFIwtztPk=",
     "location": { "lat": 5.6090, "lng": -0.2000 },
     "dishes": [
       { "name": "Jollof & Grilled Gizzard", "price": 24, "img": "https://i.ytimg.com/vi/q1ceHucIqSc/maxresdefault.jpg" },
@@ -444,7 +449,7 @@
     "id": 34,
     "name": "Sika's Kitchen",
     "city": "Nkawkaw",
-    "img": "/images/sika-kitchen.jpg",
+    "img": "https://media.gettyimages.com/id/2155981550/photo/black-generation-z-man-enjoys-the-first-bite-of-a-hot-dog-from-a-food-vendor.jpg?s=612x612&w=gi&k=20&c=SgySL9P8U9q0-h9aetB6abN3NJ48PfkHrNfGIcFupFM=",
     "location": { "lat": 6.5540, "lng": -0.7650 },
     "dishes": [
       { "name": "Banku & Pepper", "price": 17, "img": "https://images.bolt.eu/store/2021/2021-12-29/e6e59789-1650-4332-8725-02a1d19021d7.jpeg" },
@@ -455,7 +460,7 @@
     "id": 35,
     "name": "Suzzy's Tasty Meals",
     "city": "Tema",
-    "img": "/images/suzzy-meals.jpg",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTHPLxxPuSGG5NaQeLLsfDsio8rVBqeCfGtw&s",
     "location": { "lat": 5.6710, "lng": -0.0190 },
     "dishes": [
       { "name": "Ampesi & Garden Egg Stew", "price": 20, "img": "https://afrifoodnetwork.com/wp-content/uploads/2023/10/garden-egg-stew-scaled.jpg" },
@@ -477,7 +482,7 @@
     "id": 37,
     "name": "Veronica's Meals",
     "city": "Kumasi",
-    "img": "/images/veronica-meals.jpg",
+    "img": "https://images.twistedfood.co.uk/drmlai3o99aaz.cloudfront.net/wp-content/uploads/Screenshot2024-10-10at15.50.35.png_A9EI0M?tr=w-1024,cr-0.0.1024.922&config=JTdCJTIybmFtZSUyMiUzQSUyMlNjcmVlbnNob3QlMjAyMDI0LTEwLTEwJTIwYXQlMjAxNS41MC4zNS5wbmclMjIlMkMlMjJhbHRlcm5hdGl2ZV90ZXh0JTIyJTNBJTIyU2NyZWVuc2hvdCUyMDIwMjQtMTAtMTAlMjBhdCUyMDE1LjUwLjM1LnBuZyUyMiUyQyUyMmNhcHRpb24lMjIlM0ElMjJBa29rbyUyMGlzJTIwaW5zcGlyZWQlMjBieSUyMHRoZSUyMGxpdmUlMjBmaXJlJTIwY29va2luZyUyMGluJTIwV2VzdCUyMEFmcmljYSUyMChDcmVkaXQlM0ElMjBHZXR0eSklMjIlMkMlMjJjb29yZGluYXRlcyUyMiUzQSU3QiUyMmRlc2t0b3AlMjIlM0ElN0IlMjJsZWZ0JTIyJTNBMCUyQyUyMnRvcCUyMiUzQTAlMkMlMjJyaWdodCUyMiUzQTElMkMlMjJib3R0b20lMjIlM0EwLjklN0QlMkMlMjJ0YWJsZXQlMjIlM0ElN0IlMjJsZWZ0JTIyJTNBbnVsbCUyQyUyMnRvcCUyMiUzQW51bGwlMkMlMjJyaWdodCUyMiUzQW51bGwlMkMlMjJib3R0b20lMjIlM0FudWxsJTdEJTJDJTIybW9iaWxlJTIyJTNBJTdCJTIybGVmdCUyMiUzQW51bGwlMkMlMjJ0b3AlMjIlM0FudWxsJTJDJTIycmlnaHQlMjIlM0FudWxsJTJDJTIyYm90dG9tJTIyJTNBbnVsbCU3RCU3RCUyQyUyMndpZHRoJTIyJTNBMTYyMiUyQyUyMmhlaWdodCUyMiUzQTE0NTIlN0Q=",
     "location": { "lat": 6.6890, "lng": -1.6250 },
     "dishes": [
       { "name": "Yam Balls & Spicy Sauce", "price": 20, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhj6GQTLqeunKBoOghPvR0tdPA51NnjhvO5w&s" },
@@ -488,7 +493,7 @@
     "id": 38,
     "name": "Vida’s Place",
     "city": "Hohoe",
-    "img": "/images/vida-place.jpg",
+    "img": "https://www.shutterstock.com/image-photo/female-storekeeper-selling-jars-food-600nw-2464068673.jpg",
     "location": { "lat": 7.1520, "lng": 0.4720 },
     "dishes": [
       { "name": "Akple & Okro Soup", "price": 20, "img": "https://eatwellabi.com/wp-content/uploads/2019/04/IMG_6793.jpg" },
@@ -499,7 +504,7 @@
     "id": 39,
     "name": "Wendy’s Grill",
     "city": "Takoradi",
-    "img": "/images/wendy-grill.jpg",
+    "img": "https://thumbs.dreamstime.com/b/diverse-african-vendors-cooking-serving-various-bread-based-street-food-outdoor-festival-soweto-south-africa-september-185174666.jpg",
     "location": { "lat": 4.8955, "lng": -1.7540 },
     "dishes": [
       { "name": "Grilled Chicken & Jollof", "price": 25, "img": "https://t4.ftcdn.net/jpg/07/58/68/83/360_F_758688398_m6qiNRHlhEjGHZzli8bKPNdxoXdnSSzf.jpg" },
@@ -510,7 +515,7 @@
     "id": 40,
     "name": "Yaw's Kitchen",
     "city": "Sunyani",
-    "img": "/images/yaw-kitchen.jpg",
+    "img": "https://www.shutterstock.com/image-photo/cheerful-farmer-vendor-presenting-locally-600nw-2239477833.jpg",
     "location": { "lat": 7.3360, "lng": -2.3310 },
     "dishes": [
       { "name": "Fufu & Goat Meat", "price": 26, "img": "https://i.ytimg.com/vi/dSjo31UmLSE/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAcxrgGmhl_dpKIylDXVs59JUNo3Q" },
@@ -519,7 +524,7 @@
   },
   {
     "id": 41,
-    "name": "Yaw Mensah Foods",
+    "name": "https://thumbs.dreamstime.com/b/portrait-african-american-man-wearing-apron-smiling-serving-food-truck-street-concept-347883789.jpg",
     "city": "Wa",
     "img": "/images/yaw-mensah.jpg",
     "location": { "lat": 10.0580, "lng": -2.5010 },
