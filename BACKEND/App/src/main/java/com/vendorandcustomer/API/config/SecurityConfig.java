@@ -47,7 +47,7 @@ public class SecurityConfig {
                         .authenticated()
                 )
 //                .httpBasic(Customizer.withDefaults())
-                .sessionManagement(sessions-> sessions.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+//                .sessionManagement(sessions-> sessions.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .logout(logout -> logout

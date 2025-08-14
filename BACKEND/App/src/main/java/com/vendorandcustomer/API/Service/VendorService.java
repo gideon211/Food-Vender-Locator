@@ -56,10 +56,10 @@ public class VendorService {
                 .toList();
     }
 
-    public Vendor updateVendor(String RestaurantEmail, Vendor updatedVendor) {
+    public Vendor updateVendor(String restaurantEmail, Vendor updatedVendor) {
         String loggedInName = SecurityContextHolder.getContext().getAuthentication().getName();
 
-        return repository.findByRestaurantEmail(RestaurantEmail)
+        return repository.findByRestaurantEmail(restaurantEmail)
                 .map(existingVendor -> {
 
                     // Update fields
@@ -72,17 +72,17 @@ public class VendorService {
 
                     return repository.save(existingVendor);
                 })
-                .orElseThrow(() -> new RuntimeException("Vendor not found with email: " + RestaurantEmail));
+                .orElseThrow(() -> new RuntimeException("Vendor not found with email: " + restaurantEmail));
 
     }
 
 
     @ Transactional
-    public void deleteEmail(String RestaurantEmail) {
-        if (!repository.existsByRestaurantEmail(RestaurantEmail)) {
-            throw new RuntimeException("Vendor not found with email: " + RestaurantEmail);
+    public void deleteEmail(String restaurantEmail) {
+        if (!repository.existsByRestaurantEmail(restaurantEmail)) {
+            throw new RuntimeException("Vendor not found with email: " + restaurantEmail);
         }
-        repository.deleteByRestaurantEmail(RestaurantEmail);
+        repository.deleteByRestaurantEmail(restaurantEmail);
     }
 
 
