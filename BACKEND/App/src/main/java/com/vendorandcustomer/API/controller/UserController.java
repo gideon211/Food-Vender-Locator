@@ -24,8 +24,12 @@ public class UserController {
     }
 
     @PostMapping
-    public User addUser(@RequestBody UserRequest user){
-        return service.addUser(user);
+    public ResponseEntity<Object> addUser(@RequestBody UserRequest user){
+        try {
+            return ResponseEntity.status(201).body(service.addUser(user));
+        }catch (Exception exception){
+            return ResponseEntity.status(400).body(exception.getMessage());
+        }
     }
 
     @DeleteMapping("/{email}")
