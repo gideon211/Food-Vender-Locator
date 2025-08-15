@@ -18,13 +18,13 @@ function AnimatedRoutes() {
 
 function App() {
   return (
-    <BrowserRouter>
+   
       <AuthProvider>
         <div className="min-h-screen bg-gray-50">
           <AnimatedRoutes />
         </div>
       </AuthProvider>
-    </BrowserRouter>
+  
   );
 }
 

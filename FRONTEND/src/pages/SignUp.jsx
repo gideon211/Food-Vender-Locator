@@ -1,55 +1,33 @@
+// src/pages/Signup.jsx
 import {
-  FaFacebookF,
-  FaLinkedinIn,
-  FaGoogle,
-  FaEnvelope,
+  FaFacebookF, FaLinkedinIn, FaGoogle, FaEnvelope,
 } from "react-icons/fa";
 import { MdLockOutline } from "react-icons/md";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LoaderSpinner from "../components/LoaderSpinner";
 import { motion } from "framer-motion";
-import { useAuthContext } from "../context/AuthContext";
+import { useAuth } from "../hooks/useAuth";
 
 const Signup = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [formData, setFormData] = useState({ name: "", email: "", password: "", confirmPassword: "" });
   const [slideOut, setSlideOut] = useState(false);
-
-  const { signup } = useAuthContext();
   const navigate = useNavigate();
+  const { signup, error, clearError, loading } = useAuth();
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    clearError?.();
+    setFormData((p) => ({ ...p, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    setError("");
-
     const { name, email, password, confirmPassword } = formData;
-
-    if (password !== confirmPassword) {
-      setError("Passwords do not match");
-      setLoading(false);
-      return;
-    }
-
+    if (password !== confirmPassword) return alert("Passwords do not match");
     try {
       await signup({ name, email, password });
       navigate("/dashboard");
-    } catch (err) {
-      setError("Signup failed");
-    } finally {
-      setLoading(false);
-    }
+    } catch (_) {}
   };
 
   const goToLogin = () => {
@@ -60,54 +38,46 @@ const Signup = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-orange-100">
       <div className="relative w-full max-w-4xl h-[600px] bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
-        
-        {/* Left CTA */}
-<motion.div
-  initial={{ x: 0 }}
-  animate={{ x: slideOut ? 400 : 0 }}
-  transition={{ type: "spring", stiffness: 70 }}
-  className="hidden md:flex w-2/5 relative flex-col items-center justify-center p-10 text-white"
-  style={{
-    backgroundImage: "url('https://images.unsplash.com/photo-1540377904109-89bf2d99918a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8d2FpdGVyfGVufDB8MXwwfHx8Mg%3D%3D')",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  }}
->
-  {/* Overlay */}
-  <div className="absolute inset-0 bg-black/40 bg-opacity-50 rounded-lg"></div>
+        <motion.div
+          initial={{ x: 0 }}
+          animate={{ x: slideOut ? 400 : 0 }}
+          transition={{ type: "spring", stiffness: 70 }}
+          className="hidden md:flex w-2/5 relative flex-col items-center justify-center p-10 text-white"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1540377904109-89bf2d99918a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8d2FpdGVyfGVufDB8MXwwfHx8Mg%3D%3D')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <div className="absolute inset-0 bg-black/40 bg-opacity-50 rounded-lg"></div>
+          <div className="relative z-10 flex flex-col items-center">
+            <h2 className="text-3xl font-bold mb-2">Welcome Back!</h2>
+            <div className="border-2 w-10 rounded-full border-white mb-4"></div>
+            <p className="mb-5 text-sm">Already have an account?</p>
+            <button
+              onClick={goToLogin}
+              className="border-2 border-white rounded-full px-12 py-2 font-semibold hover:bg-white hover:text-orange-500 transition-all duration-200"
+            >
+              Sign In
+            </button>
+          </div>
+        </motion.div>
 
-  {/* Content container */}
-  <div className="relative z-10 flex flex-col items-center">
-    <h2 className="text-3xl font-bold mb-2">Welcome Back!</h2>
-    <div className="border-2 w-10 rounded-full border-white mb-4"></div>
-    <p className="mb-5 text-sm">Already have an account?</p>
-    <button
-      onClick={goToLogin}
-      className="border-2 border-white rounded-full px-12 py-2 font-semibold hover:bg-white hover:text-orange-500 transition-all duration-200"
-    >
-      Sign In
-    </button>
-  </div>
-</motion.div>
-
-
-        {/* Right Form Section */}
         <div className="w-full md:w-3/5 flex flex-col items-center justify-center p-10">
-          <h2 className="text-3xl font-bold text-orange-600 mb-2">
-            Create Account
-          </h2>
+          <h2 className="text-3xl font-bold text-orange-600 mb-2">Create Account</h2>
           <div className="border-2 w-10 rounded-full border-orange-500 mb-4"></div>
 
           <div className="flex justify-center my-2">
-            <a href="#" className="border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-orange-100">
+            <button className="border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-orange-100">
               <FaFacebookF className="text-sm text-orange-500" />
-            </a>
-            <a href="#" className="border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-orange-100">
+            </button>
+            <button className="border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-orange-100">
               <FaLinkedinIn className="text-sm text-orange-500" />
-            </a>
-            <a href="#" className="border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-orange-100">
+            </button>
+            <button className="border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-orange-100">
               <FaGoogle className="text-sm text-orange-500" />
-            </a>
+            </button>
           </div>
 
           <p className="text-gray-400 my-3">or use your email for registration</p>
@@ -127,7 +97,7 @@ const Signup = () => {
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="bg-transparent outline-none text-sm flex-1 text-gray-800"
+                className="bg-transparent outline-none text-sm flex-1 text-gray-800 text-center"
               />
             </label>
 
@@ -165,7 +135,7 @@ const Signup = () => {
                 required
                 value={formData.confirmPassword}
                 onChange={handleChange}
-                className="bg-transparent outline-none text-sm flex-1 text-gray-800 "
+                className="bg-transparent outline-none text-sm flex-1 text-center text-gray-800"
               />
             </label>
 
@@ -180,10 +150,7 @@ const Signup = () => {
 
           <p className="md:hidden mt-6 text-gray-400 text-sm">
             Already have an account?{" "}
-            <button
-              onClick={goToLogin}
-              className="hover:text-orange-500 font-medium"
-            >
+            <button onClick={goToLogin} className="hover:text-orange-500 font-medium">
               Sign in
             </button>
           </p>

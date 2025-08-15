@@ -1,9 +1,8 @@
-// Authentication context - Manages user authentication state across the app
-import React, { createContext, useContext, useReducer, useEffect } from 'react';
-import { authService } from '../api/auth';
-import { getToken, setToken, removeToken } from '../utils/tokenUtils';
+// src/context/AuthContext.jsx
+import React, { createContext, useContext, useReducer, useEffect } from "react";
+import { authService } from "../api/auth";
+import { getToken, setToken, removeToken } from "../utils/tokenUtils";
 
-// Initial state
 const initialState = {
   user: null,
   isAuthenticated: false,
@@ -11,194 +10,111 @@ const initialState = {
   error: null,
 };
 
-// Action types
 const AUTH_ACTIONS = {
-  LOGIN_START: 'LOGIN_START',
-  LOGIN_SUCCESS: 'LOGIN_SUCCESS',
-  LOGIN_FAILURE: 'LOGIN_FAILURE',
-  LOGOUT: 'LOGOUT',
-  SET_LOADING: 'SET_LOADING',
-  CLEAR_ERROR: 'CLEAR_ERROR',
+  START: "START",
+  SUCCESS: "SUCCESS",
+  FAILURE: "FAILURE",
+  LOGOUT: "LOGOUT",
+  SET_LOADING: "SET_LOADING",
+  CLEAR_ERROR: "CLEAR_ERROR",
 };
 
-// Reducer function
 const authReducer = (state, action) => {
   switch (action.type) {
-    case AUTH_ACTIONS.LOGIN_START:
-      return {
-        ...state,
-        loading: true,
-        error: null,
-      };
-    case AUTH_ACTIONS.LOGIN_SUCCESS:
-      return {
-        ...state,
-        user: action.payload.user,
-        isAuthenticated: true,
-        loading: false,
-        error: null,
-      };
-    case AUTH_ACTIONS.LOGIN_FAILURE:
-      return {
-        ...state,
-        user: null,
-        isAuthenticated: false,
-        loading: false,
-        error: action.payload.error,
-      };
+    case AUTH_ACTIONS.START:
+      return { ...state, loading: true, error: null };
+    case AUTH_ACTIONS.SUCCESS:
+      return { ...state, user: action.payload.user, isAuthenticated: true, loading: false, error: null };
+    case AUTH_ACTIONS.FAILURE:
+      return { ...state, user: null, isAuthenticated: false, loading: false, error: action.payload.error || "Auth error" };
     case AUTH_ACTIONS.LOGOUT:
-      return {
-        ...state,
-        user: null,
-        isAuthenticated: false,
-        loading: false,
-        error: null,
-      };
+      return { ...state, user: null, isAuthenticated: false, loading: false, error: null };
     case AUTH_ACTIONS.SET_LOADING:
-      return {
-        ...state,
-        loading: action.payload,
-      };
+      return { ...state, loading: action.payload };
     case AUTH_ACTIONS.CLEAR_ERROR:
-      return {
-        ...state,
-        error: null,
-      };
+      return { ...state, error: null };
     default:
       return state;
   }
 };
 
-// Create context
-const AuthContext = createContext();
+const AuthContext = createContext(null);
 
-// Auth provider component
 export const AuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
-  // Check for existing token on app load
+  // On app start: if token exists, fetch current user
   useEffect(() => {
-    const checkAuthStatus = async () => {
+    const bootstrap = async () => {
       const token = getToken();
-      
-      if (token) {
-        try {
-          // TODO: Replace with your actual API call to verify token
-          // Verify token and get user data
-        //   const userData = await authService.getCurrentUser();
-        const userData = { password: 'Testing', email: 'kwarteon08@gmail.com' };
-        await new Promise(resolve => setTimeout(resolve, 3000)); // 3 seconds
-
-          dispatch({
-            type: AUTH_ACTIONS.LOGIN_SUCCESS,
-            payload: { user: userData },
-          });
-        } catch (error) {
-          // Token is invalid, remove it
-          removeToken();
-          dispatch({ type: AUTH_ACTIONS.LOGOUT });
-        }
-      } else {
+      if (!token) {
         dispatch({ type: AUTH_ACTIONS.SET_LOADING, payload: false });
+        return;
+      }
+      try {
+        const user = await authService.getCurrentUser();
+        dispatch({ type: AUTH_ACTIONS.SUCCESS, payload: { user } });
+      } catch (error) {
+        removeToken();
+        dispatch({ type: AUTH_ACTIONS.LOGOUT });
       }
     };
-
-    checkAuthStatus();
+    bootstrap();
   }, []);
 
-  // Login function
   const login = async (credentials) => {
-    dispatch({ type: AUTH_ACTIONS.LOGIN_START });
-    
+    dispatch({ type: AUTH_ACTIONS.START });
     try {
-      const response = await authService.login(credentials);
-      const { user, token } = response;
-      
-      // TODO: Adjust destructuring based on your API response structure
-      // Your API might return different field names
-      
-      // Store token
+      const { user, token } = await authService.login(credentials);
       setToken(token);
-      
-      dispatch({
-        type: AUTH_ACTIONS.LOGIN_SUCCESS,
-        payload: { user },
-      });
-      
-      return response;
+      dispatch({ type: AUTH_ACTIONS.SUCCESS, payload: { user } });
+      return { user, token };
     } catch (error) {
-      dispatch({
-        type: AUTH_ACTIONS.LOGIN_FAILURE,
-        payload: { error: error.message },
-      });
+      dispatch({ type: AUTH_ACTIONS.FAILURE, payload: { error: error?.response?.data?.message || error.message } });
       throw error;
     }
   };
 
-  // Signup function
   const signup = async (userData) => {
-    dispatch({ type: AUTH_ACTIONS.LOGIN_START });
-    
+    dispatch({ type: AUTH_ACTIONS.START });
     try {
-      const response = await authService.signup(userData);
-      const { user, token } = response;
-      
-      // TODO: Adjust destructuring based on your API response structure
-      // Your API might return different field names
-      
-      // Store token
+      const { user, token } = await authService.signup(userData);
       setToken(token);
-      
-      dispatch({
-        type: AUTH_ACTIONS.LOGIN_SUCCESS,
-        payload: { user },
-      });
-      
-      return response;
+      dispatch({ type: AUTH_ACTIONS.SUCCESS, payload: { user } });
+      return { user, token };
     } catch (error) {
-      dispatch({
-        type: AUTH_ACTIONS.LOGIN_FAILURE,
-        payload: { error: error.message },
-      });
+      dispatch({ type: AUTH_ACTIONS.FAILURE, payload: { error: error?.response?.data?.message || error.message } });
       throw error;
     }
   };
 
-  // Logout function
   const logout = async () => {
-    try {
-      // TODO: Update this if your backend requires a logout API call
-      await authService.logout();
-    } catch (error) {
-      console.error('Logout error:', error);
-    } finally {
+    try { await authService.logout(); }
+    finally {
       removeToken();
       dispatch({ type: AUTH_ACTIONS.LOGOUT });
     }
   };
 
-  // Clear error function
-  const clearError = () => {
-    dispatch({ type: AUTH_ACTIONS.CLEAR_ERROR });
-  };
+  const clearError = () => dispatch({ type: AUTH_ACTIONS.CLEAR_ERROR });
 
-  // Context value
-  const value = {
-    ...state,
-    login,
-    signup,
-    logout,
-    clearError,
-  };
-
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider
+      value={{
+        ...state,
+        login,
+        signup,
+        logout,
+        clearError,
+      }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
-// Hook to use auth context
 export const useAuthContext = () => {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error('useAuthContext must be used within an AuthProvider');
-  }
-  return context;
+  const ctx = useContext(AuthContext);
+  if (!ctx) throw new Error("useAuthContext must be used within AuthProvider");
+  return ctx;
 };

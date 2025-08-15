@@ -1,68 +1,57 @@
+// src/pages/Login.jsx
 import {
-  FaFacebookF,
-  FaLinkedinIn,
-  FaGoogle,
-  FaEnvelope,
+  FaFacebookF, FaLinkedinIn, FaGoogle, FaEnvelope,
 } from "react-icons/fa";
 import { MdLockOutline } from "react-icons/md";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAuthContext } from "../context/AuthContext";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 import LoaderSpinner from "../components/LoaderSpinner";
 import { motion } from "framer-motion";
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
   const [slideOut, setSlideOut] = useState(false);
-
-  const { login } = useAuthContext();
   const navigate = useNavigate();
+  const location = useLocation();
+  const { login, error, clearError, loading } = useAuth();
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    clearError?.();
+    setFormData((p) => ({ ...p, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    setError("");
-
     try {
       await login(formData);
-      navigate("/dashboard");
-    } catch (err) {
-      setError(err.message || "Login failed. Please try again.");
-    } finally {
-      setLoading(false);
-    }
+      const redirectTo = location.state?.from?.pathname || "/dashboard";
+      navigate(redirectTo, { replace: true });
+    } catch (_) {}
   };
 
   const goToSignup = () => {
     setSlideOut(true);
-    setTimeout(() => navigate("/signup"), 800);
+    setTimeout(() => navigate("/signup"), 500);
   };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-orange-100">
       <div className="relative w-full max-w-4xl h-[600px] bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
-        
-        {/* Left Login Section */}
         <div className="w-full md:w-3/5 flex flex-col items-center justify-center p-10">
           <h2 className="text-3xl font-bold text-orange-600 mb-2">Sign In</h2>
           <div className="border-2 w-10 border-orange-500 rounded-full mb-4"></div>
 
           <div className="flex justify-center my-2">
-            <a href="#" className="border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-orange-100">
+            <button className="border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-orange-100">
               <FaFacebookF className="text-sm text-orange-500" />
-            </a>
-            <a href="#" className="border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-orange-100">
+            </button>
+            <button className="border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-orange-100">
               <FaLinkedinIn className="text-sm text-orange-500" />
-            </a>
-            <a href="#" className="border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-orange-100">
+            </button>
+            <button className="border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-orange-100">
               <FaGoogle className="text-sm text-orange-500" />
-            </a>
+            </button>
           </div>
 
           <p className="text-gray-400 my-3">or use your email account</p>
@@ -120,44 +109,37 @@ const Login = () => {
 
           <p className="md:hidden mt-6 text-gray-400 text-xs">
             Don’t have an account?{" "}
-            <button
-              onClick={goToSignup}
-              className="hover:text-orange-500 font-medium"
-            >
+            <button onClick={goToSignup} className="hover:text-orange-500 font-medium">
               Sign up
             </button>
           </p>
         </div>
 
-        {/* Right Signup CTA */}
-<motion.div
-  initial={{ x: 0 }}
-  animate={{ x: slideOut ? -400 : 0 }}
-  transition={{ type: "spring", stiffness: 70 }}
-  className="hidden md:flex w-2/4 relative flex-col items-center justify-center p-10 text-white"
-  style={{
-    backgroundImage: "url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZHxlbnwwfDF8MHx8fDI%3D')",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  }}
->
-  {/* Overlay */}
-  <div className="absolute inset-0 bg-black/30 bg-opacity-50 rounded-lg"></div>
-
-  {/* Content container */}
-  <div className="relative z-10 flex flex-col items-center">
-    <h2 className="text-3xl font-bold mb-2">Hello, Friend!</h2>
-    <div className="border-2 w-10 border-white rounded-full mb-4"></div>
-    <p className="mb-5 text-xs text-center">Don’t have an account? Join us.</p>
-    <button
-      onClick={goToSignup}
-      className="border-2 border-white rounded-full px-12 py-2 font-semibold hover:bg-white hover:text-orange-600 transition-all duration-200"
-    >
-      Sign Up
-    </button>
-  </div>
-</motion.div>
-
+        <motion.div
+          initial={{ x: 0 }}
+          animate={{ x: slideOut ? -400 : 0 }}
+          transition={{ type: "spring", stiffness: 70 }}
+          className="hidden md:flex w-2/4 relative flex-col items-center justify-center p-10 text-white"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZHxlbnwwfDF8MHx8fDI%3D')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <div className="absolute inset-0 bg-black/30 bg-opacity-50 rounded-lg"></div>
+          <div className="relative z-10 flex flex-col items-center">
+            <h2 className="text-3xl font-bold mb-2">Hello, Friend!</h2>
+            <div className="border-2 w-10 border-white rounded-full mb-4"></div>
+            <p className="mb-5 text-xs text-center">Don’t have an account? Join us.</p>
+            <button
+              onClick={goToSignup}
+              className="border-2 border-white rounded-full px-12 py-2 font-semibold hover:bg-white hover:text-orange-600 transition-all duration-200"
+            >
+              Sign Up
+            </button>
+          </div>
+        </motion.div>
       </div>
     </div>
   );
