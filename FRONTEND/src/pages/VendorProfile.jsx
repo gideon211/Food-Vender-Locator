@@ -102,7 +102,7 @@ export default function VendorProfileForm() {
             {/* Business Name */}
             <div>
               <label className="block text-gray-800 font-medium mb-1">
-                Business name
+                Restaurant name
               </label>
               <input
                 type="text"
@@ -114,10 +114,10 @@ export default function VendorProfileForm() {
             {/* Business Type */}
             <div>
               <label className="block text-gray-800 font-medium mb-1">
-                Business type
+                Restaurant type
               </label>
               <select className="bg-white border rounded-md px-4 py-3 w-full text-gray-700">
-                <option value="">Select business type</option>
+                {/* <option value="">Select business type</option> */}
                 <option value="restaurant">Restaurant</option>
                 <option value="local">Local</option>
               </select>
@@ -155,12 +155,12 @@ export default function VendorProfileForm() {
             {/* Vendor Profile Image */}
             <div className="md:col-span-2">
               <label className="block text-gray-800 font-medium mb-1">
-                Profile image
+                Profile image(URL)
               </label>
               <input
-                type="file"
+                type="text"
                 accept="image/*"
-                className="bg-white border rounded-md px-4 py-3 w-full cursor-pointer"
+                className="bg-white border rounded-md px-4 py-3 w-full cursor-text"
               />
               <p className="text-xs text-gray-500 mt-1">
                 Upload a clear image of your restaurant, shop, or logo.
@@ -169,72 +169,7 @@ export default function VendorProfileForm() {
 
             {/* NEW — Multiple Dishes Section */}
 {/* Dishes Section */}
-<div className="mt-4">
-  <h3 className="text-lg font-semibold mb-3">Dishes</h3>
-  
-  {dishes.map((dish, index) => (
-    <div key={index} className="flex gap-4 mb-4">
-      {/* Dish Name */}
-      <input
-        type="text"
-        placeholder="Dish Name"
-        value={dish.name}
-        onChange={(e) =>
-          handleDishChange(index, "name", e.target.value)
-        }
-        className="border p-2 flex-1 rounded"
-      />
 
-      {/* Dish Price */}
-      <input
-        type="number"
-        placeholder="Price"
-        value={dish.price}
-        onChange={(e) =>
-          handleDishChange(index, "price", e.target.value)
-        }
-        className="border p-2 w-28 rounded"
-      />
-
-      {/* Dish Image */}
-      <input
-        type="file"
-        accept="image/*"
-        onChange={(e) =>
-          handleDishImageChange(index, e.target.files[0])
-        }
-        className="border p-2 w-38 text-xm"
-      />
-    </div>
-  ))}
-
-<button
-  type="button"
-  onClick={handleAddDish}  // ✅ This matches your defined function
-  className="bg-orange-300 text-white px-4 py-2 rounded hover:bg-orange-400"
->
-  +
-</button>
-
-</div>
-
-
-            {/* Phone Number */}
-            <div className="md:col-span-2">
-              <label className="block text-gray-800 font-medium mb-1">
-                Phone number
-              </label>
-              <div className="flex items-center gap-2">
-                <select className="bg-white border rounded-md px-4 py-3 text-sm">
-                  <option value="+233">🇬🇭 +233</option>
-                </select>
-                <input
-                  type="text"
-                  placeholder="Mobile number"
-                  className="bg-white border rounded-md px-4 py-3 w-full text-sm"
-                />
-              </div>
-            </div>
 
             {/* Submit */}
             <div className="md:col-span-2">

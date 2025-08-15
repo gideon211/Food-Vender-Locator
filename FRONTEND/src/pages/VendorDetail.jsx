@@ -48,7 +48,7 @@ function Routing({ userLocation, vendorLocation, setRouteInfo }) {
           setRouteInfo({ distance: distanceKm, eta: etaMin });
 
           // Draw polyline
-          const line = L.polyline(route.coordinates, { color: "orange", weight: 4 }).addTo(map);
+          const line = L.polyline(route.coordinates, { color: "white", weight: 4 }).addTo(map);
 
           // Find midpoint of route for label
           const midIndex = Math.floor(route.coordinates.length / 2);
