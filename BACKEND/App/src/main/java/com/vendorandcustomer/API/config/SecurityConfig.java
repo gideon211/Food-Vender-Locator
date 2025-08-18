@@ -35,30 +35,26 @@ public class SecurityConfig {
         return httpSecurity.csrf(AbstractHttpConfigurer::disable)
                 .cors(cors -> cors.configurationSource(request -> {
                     CorsConfiguration configuration = new CorsConfiguration();
-                    configuration.setAllowedOrigins(List.of("http://localhost:5173"));
-                    configuration.setAllowedMethods(List.of(GET.name(), POST.name(), PUT.name(), DELETE.name()));
-                    configuration.setAllowedHeaders(List.of(AUTHORIZATION, CONTENT_TYPE));
+                    configuration.setAllowedOriginPatterns(List.of("*")); // allow all origins
+                    configuration.setAllowedMethods(List.of("*"));       // allow all HTTP methods
+                    configuration.setAllowedHeaders(List.of("*"));       // allow all headers
+                    configuration.setAllowCredentials(true);             // allow cookies/auth headers if needed
                     return configuration;
                 }))
                 .authorizeHttpRequests(requests -> requests
-                        .requestMatchers("/api/users/**")
-                        .permitAll()
-                        .anyRequest()
-                        .authenticated()
+                        .requestMatchers("/api/**").permitAll()
+                        .anyRequest().authenticated()
                 )
-//                .httpBasic(Customizer.withDefaults())
-//                .sessionManagement(sessions-> sessions.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .logout(logout -> logout
                         .logoutUrl("/api/logout")
                         .logoutSuccessHandler(logoutSuccessHandler)
-                        .addLogoutHandler(
-                                (request, response, authentication) -> SecurityContextHolder.clearContext()
+                        .addLogoutHandler((request, response, authentication) ->
+                                SecurityContextHolder.clearContext()
                         )
                 )
                 .build();
     }
-
 }
 
