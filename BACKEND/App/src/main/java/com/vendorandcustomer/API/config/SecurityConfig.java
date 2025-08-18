@@ -26,13 +26,10 @@ import static org.springframework.http.HttpMethod.*;
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-    private final SecurityFilter securityFilter;
-    private final AuthenticationProvider authenticationProvider;
-    private final LogoutSuccessHandler logoutSuccessHandler;
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-        return httpSecurity.csrf(AbstractHttpConfigurer::disable)
+        return httpSecurity
+                .csrf(AbstractHttpConfigurer::disable)
                 .cors(cors -> cors.configurationSource(request -> {
                     CorsConfiguration configuration = new CorsConfiguration();
                     configuration.setAllowedOriginPatterns(List.of("*")); // allow all origins
@@ -41,18 +38,8 @@ public class SecurityConfig {
                     configuration.setAllowCredentials(true);             // allow cookies/auth headers if needed
                     return configuration;
                 }))
-                .authorizeHttpRequests(requests -> requests
-                        .requestMatchers("/api/**").permitAll()
-                        .anyRequest().authenticated()
-                )
-                .authenticationProvider(authenticationProvider)
-                .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
-                .logout(logout -> logout
-                        .logoutUrl("/api/logout")
-                        .logoutSuccessHandler(logoutSuccessHandler)
-                        .addLogoutHandler((request, response, authentication) ->
-                                SecurityContextHolder.clearContext()
-                        )
+                .authorizeHttpRequests(auth -> auth
+                        .anyRequest().permitAll()  // ✅ make all endpoints public
                 )
                 .build();
     }
