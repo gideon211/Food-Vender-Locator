@@ -47,7 +47,6 @@ public class UserService {
                 .email(user.getEmail())
                 .name(user.getName())//
                 .password(passwordEncoder.encode(user.getPassword()))
-                .role(User.Role.CUSTOMER)
                 .build();
 
         return repository.save(saveUser);

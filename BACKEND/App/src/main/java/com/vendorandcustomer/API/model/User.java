@@ -4,6 +4,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,7 +18,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
-
 @Entity
 @Data
 @NoArgsConstructor
@@ -22,20 +25,28 @@ import java.util.List;
 @Builder
 @Table(name = "users")
 public class User implements UserDetails {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Name is required")
+    @Size(min = 2, max = 50, message = "Name must be between 2 and 50 characters")
     private String name;
 
+    @NotBlank(message = "Email is required")
+    @Email(message = "Email should be valid")
     @Column(unique = true)
     private String email;
 
+    @NotBlank(message = "Password is required")
+    @Size(min = 6, message = "Password must be at least 6 characters")
     private String password;
 
     @OneToOne
     @JsonIgnore
     private Vendor vendor;
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -47,27 +58,39 @@ public class User implements UserDetails {
         return email;
     }
 
-    @Enumerated(EnumType.STRING)
-    private User.Role role;
-
-    public void setName() {
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
     }
-    public static enum Role{
-        // Use only the values that your database constraint allows
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    public static enum Role {
         CUSTOMER,
-        VENDOR;
-        // Remove USER if it's not allowed in the database
+        VENDOR,
+        USER;
 
         @JsonCreator
         public static Role fromString(String key) {
             if (key == null) return null;
-
-            // Handle case insensitivity and map "USER" to "CUSTOMER" if needed
-            String upperKey = key.toUpperCase();
-            if ("USER".equals(upperKey)) {
-                return CUSTOMER; // Map USER to CUSTOMER
+            try {
+                return Role.valueOf(key.toUpperCase());
+            } catch (IllegalArgumentException e) {
+                return null;
             }
-            return Role.valueOf(upperKey);
         }
 
         @JsonValue
