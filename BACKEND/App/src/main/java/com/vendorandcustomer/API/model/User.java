@@ -52,14 +52,22 @@ public class User implements UserDetails {
 
     public void setName() {
     }
-
     public static enum Role{
+        // Use only the values that your database constraint allows
         CUSTOMER,
         VENDOR;
+        // Remove USER if it's not allowed in the database
 
         @JsonCreator
         public static Role fromString(String key) {
-            return key == null ? null : Role.valueOf(key.toUpperCase());
+            if (key == null) return null;
+
+            // Handle case insensitivity and map "USER" to "CUSTOMER" if needed
+            String upperKey = key.toUpperCase();
+            if ("USER".equals(upperKey)) {
+                return CUSTOMER; // Map USER to CUSTOMER
+            }
+            return Role.valueOf(upperKey);
         }
 
         @JsonValue

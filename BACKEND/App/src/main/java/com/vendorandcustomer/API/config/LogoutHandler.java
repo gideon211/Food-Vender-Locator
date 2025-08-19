@@ -6,51 +6,54 @@ import com.vendorandcustomer.API.repository.UserCodeRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
-import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-@Service
-@RequiredArgsConstructor
 public class LogoutHandler implements LogoutSuccessHandler {
 
     private final UserCodeRepository userTokenRepository;
+    private final ObjectMapper objectMapper = new ObjectMapper();
+
+    public LogoutHandler(UserCodeRepository userTokenRepository) {
+        this.userTokenRepository = userTokenRepository;
+    }
 
     @Override
     public void onLogoutSuccess(HttpServletRequest request,
                                 HttpServletResponse response,
-                                Authentication authentication) {
+                                Authentication authentication) throws IOException {
+
         var header = request.getHeader(HttpHeaders.AUTHORIZATION);
 
         if (header == null || !header.startsWith("Bearer ")) {
-            try {
-                new ObjectMapper().writeValue(response.getOutputStream(), "Failed to logout");
-            } catch (IOException e) {
-                throw new RuntimeException("Failed to logout");
-            }
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            Map<String, String> errorResponse = new HashMap<>();
+            errorResponse.put("error", "Authorization header missing or invalid");
+            objectMapper.writeValue(response.getOutputStream(), errorResponse);
             return;
         }
 
         var token = header.substring(7);
         deleteAllUserTokens(token);
-        try {
-            new ObjectMapper().writeValue(response.getOutputStream(), "Logout successfully");
-        } catch (IOException e) {
-            throw new RuntimeException("Logout successfully");
-        }
+
+        response.setStatus(HttpServletResponse.SC_OK);
+        Map<String, String> successResponse = new HashMap<>();
+        successResponse.put("message", "Logout successful");
+        objectMapper.writeValue(response.getOutputStream(), successResponse);
     }
 
     private void deleteAllUserTokens(String token) {
         UserCode userToken = userTokenRepository.findByToken(token)
-                .orElseThrow(() -> new EntityNotFoundException("Failed to logout"));
+                .orElseThrow(() -> new EntityNotFoundException("Token not found"));
 
-        List<UserCode> allUserTokens = userTokenRepository.getAllUserTokens(userToken.getUserData().getId());
+        List<UserCode> allUserTokens = userTokenRepository.getAllUserTokens(
+                userToken.getUserData().getId());
         userTokenRepository.deleteAll(allUserTokens);
     }
 }
-
