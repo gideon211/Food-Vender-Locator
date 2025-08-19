@@ -1,7 +1,6 @@
 // src/context/AuthContext.jsx
 import React, { createContext, useContext, useReducer, useEffect } from "react";
 import { authService } from "../api/auth";
-import { getToken, setToken, removeToken } from "../utils/tokenUtils";
 
 const initialState = {
   user: null,
@@ -43,34 +42,41 @@ const AuthContext = createContext(null);
 export const AuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
-  // On app start: if token exists, fetch current user
-  useEffect(() => {
-    const bootstrap = async () => {
-      const token = getToken();
-      if (!token) {
-        dispatch({ type: AUTH_ACTIONS.SET_LOADING, payload: false });
-        return;
-      }
-      try {
+  // On app start: try fetching current user
+useEffect(() => {
+  const bootstrap = async () => {
+    try {
+      const storedUser = localStorage.getItem("user");
+      if (storedUser) {
+        dispatch({ type: AUTH_ACTIONS.SUCCESS, payload: { user: JSON.parse(storedUser) } });
+      } else {
         const user = await authService.getCurrentUser();
-        dispatch({ type: AUTH_ACTIONS.SUCCESS, payload: { user } });
-      } catch (error) {
-        removeToken();
-        dispatch({ type: AUTH_ACTIONS.LOGOUT });
+        if (user) {
+          dispatch({ type: AUTH_ACTIONS.SUCCESS, payload: { user } });
+        } else {
+          dispatch({ type: AUTH_ACTIONS.SET_LOADING, payload: false });
+        }
       }
-    };
-    bootstrap();
-  }, []);
+    } catch (error) {
+      dispatch({ type: AUTH_ACTIONS.LOGOUT });
+    }
+  };
+  bootstrap();
+}, []);
+
 
   const login = async (credentials) => {
     dispatch({ type: AUTH_ACTIONS.START });
     try {
-      const { user, token } = await authService.login(credentials);
-      setToken(token);
+      const { user } = await authService.login(credentials);
+       localStorage.setItem("user", JSON.stringify(user));
       dispatch({ type: AUTH_ACTIONS.SUCCESS, payload: { user } });
-      return { user, token };
+      return { user };
     } catch (error) {
-      dispatch({ type: AUTH_ACTIONS.FAILURE, payload: { error: error?.response?.data?.message || error.message } });
+      dispatch({
+        type: AUTH_ACTIONS.FAILURE,
+        payload: { error: error?.response?.data?.message || error.message },
+      });
       throw error;
     }
   };
@@ -78,23 +84,29 @@ export const AuthProvider = ({ children }) => {
   const signup = async (userData) => {
     dispatch({ type: AUTH_ACTIONS.START });
     try {
-      const { user, token } = await authService.signup(userData);
-      setToken(token);
+      const { user } = await authService.signup(userData);
+       localStorage.setItem("user", JSON.stringify(user));
       dispatch({ type: AUTH_ACTIONS.SUCCESS, payload: { user } });
-      return { user, token };
+      return { user };
     } catch (error) {
-      dispatch({ type: AUTH_ACTIONS.FAILURE, payload: { error: error?.response?.data?.message || error.message } });
+      dispatch({
+        type: AUTH_ACTIONS.FAILURE,
+        payload: { error: error?.response?.data?.message || error.message },
+      });
       throw error;
     }
   };
 
-  const logout = async () => {
-    try { await authService.logout(); }
-    finally {
-      removeToken();
-      dispatch({ type: AUTH_ACTIONS.LOGOUT });
-    }
-  };
+
+const logout = async () => {
+  try {
+    await authService.logout();
+  } finally {
+    localStorage.removeItem("user"); // <-- add this
+    dispatch({ type: AUTH_ACTIONS.LOGOUT });
+  }
+};
+
 
   const clearError = () => dispatch({ type: AUTH_ACTIONS.CLEAR_ERROR });
 

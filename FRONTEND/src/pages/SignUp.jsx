@@ -26,8 +26,10 @@ const Signup = () => {
     if (password !== confirmPassword) return alert("Passwords do not match");
     try {
       await signup({ name, email, password });
-      navigate("/dashboard");
-    } catch (_) {}
+      navigate("/login");
+    } catch (err) {
+        alert(error.response?.data || "sign up failed")
+    }
   };
 
   const goToLogin = () => {
@@ -97,7 +99,7 @@ const Signup = () => {
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="bg-transparent outline-none text-sm flex-1 text-gray-800 text-center"
+                className="bg-transparent outline-none text-sm flex-1 text-gray-800 "
               />
             </label>
 
@@ -135,7 +137,7 @@ const Signup = () => {
                 required
                 value={formData.confirmPassword}
                 onChange={handleChange}
-                className="bg-transparent outline-none text-sm flex-1 text-center text-gray-800"
+                className="bg-transparent outline-none text-sm flex-1  text-gray-800"
               />
             </label>
 
