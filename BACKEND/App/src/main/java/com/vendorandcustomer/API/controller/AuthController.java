@@ -1,6 +1,8 @@
 package com.vendorandcustomer.API.controller;
 
 import com.vendorandcustomer.API.config.JwtService;
+import com.vendorandcustomer.API.dto.LoginRequest;
+import com.vendorandcustomer.API.dto.RegistrationRequest;
 import com.vendorandcustomer.API.model.User;
 import com.vendorandcustomer.API.repository.UserRepository;
 import jakarta.validation.Valid;
@@ -24,7 +26,7 @@ public class AuthController {
     private final PasswordEncoder passwordEncoder;
 
     @PostMapping("/register")
-    public ResponseEntity<?> register(@Valid @RequestBody User request) {
+    public ResponseEntity<?> register(@Valid @RequestBody RegistrationRequest request) {
         try {
             // Check if email already exists
             if (userRepository.findByEmail(request.getEmail()).isPresent()) {
@@ -32,15 +34,21 @@ public class AuthController {
                         .body(Map.of("error", "Email already exists"));
             }
 
-            request.setPassword(passwordEncoder.encode(request.getPassword()));
+            User user = request.toUser();
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
 
+            // Set default role to CUSTOMER if not provided
+            if (user.getRole() == null) {
+                user.setRole(User.Role.CUSTOMER);
+            }
 
-
-            User savedUser = userRepository.save(request);
+            User savedUser = userRepository.save(user);
 
             return ResponseEntity.ok(Map.of(
                     "message", "User registered successfully!",
-                    "userId", savedUser.getId()
+                    "userId", savedUser.getId(),
+                    "email", savedUser.getEmail(),
+                    "role", savedUser.getRole().name()
             ));
 
         } catch (Exception e) {
@@ -50,7 +58,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@Valid @RequestBody User request) {
+    public ResponseEntity<?> login(@Valid @RequestBody LoginRequest request) {
         try {
             authManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
@@ -60,9 +68,16 @@ public class AuthController {
 
             String token = jwtService.generateToken(request.getEmail());
 
+            // Get user to return role information
+            User user = userRepository.findByEmail(request.getEmail())
+                    .orElseThrow(() -> new RuntimeException("User not found"));
+
             return ResponseEntity.ok(Map.of(
                     "message", "Login successful",
-                    "token", token
+                    "token", token,
+                    "email", request.getEmail(),
+                    "role", user.getRole().name(),
+                    "userId", user.getId()
             ));
 
         } catch (Exception e) {
