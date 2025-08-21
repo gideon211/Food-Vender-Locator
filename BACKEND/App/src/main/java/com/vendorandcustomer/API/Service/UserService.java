@@ -34,6 +34,17 @@ public class UserService {
         this.authenticationProvider = authenticationProvider;
     }
 
+    public User getUserByEmail(String email) {
+        return repository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("User not found with email: " + email));
+    }
+
+    public User upgradeToVendor(String email) {
+        User user = getUserByEmail(email);
+        user.setRole(User.Role.VENDOR);
+        return repository.save(user);
+    }
+
     public User addUser(UserRequest user) {
         if (isNullOrEmpty(user.getEmail()) ||
                 isNullOrEmpty(user.getPassword()) ||

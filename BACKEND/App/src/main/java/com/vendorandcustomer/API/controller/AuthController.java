@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -84,5 +86,24 @@ public class AuthController {
             return ResponseEntity.badRequest()
                     .body(Map.of("error", "Invalid email or password"));
         }
+    }
+
+    // In AuthController or a new UserController:
+    @PostMapping("/upgrade-to-vendor")
+    public ResponseEntity<?> upgradeToVendor() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String userEmail = authentication.getName();
+
+        User user = userRepository.findByEmail(userEmail)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        user.setRole(User.Role.VENDOR);
+        userRepository.save(user);
+
+        return ResponseEntity.ok(Map.of(
+                "message", "User upgraded to VENDOR role successfully",
+                "email", userEmail,
+                "role", User.Role.VENDOR.name()
+        ));
     }
 }

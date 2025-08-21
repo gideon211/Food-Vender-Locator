@@ -22,6 +22,11 @@ import java.util.List;
 @Table(name = "users")
 public class User implements UserDetails {
 
+    // In User entity, update the vendor field:
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private Vendor vendor;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -33,9 +38,7 @@ public class User implements UserDetails {
 
     private String password;
 
-    @OneToOne
-    @JsonIgnore
-    private Vendor vendor;
+
 
     @Enumerated(EnumType.STRING)
     private Role role;
