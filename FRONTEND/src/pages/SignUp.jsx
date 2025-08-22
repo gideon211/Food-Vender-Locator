@@ -1,19 +1,24 @@
 // src/pages/Signup.jsx
-import {
-  FaFacebookF, FaLinkedinIn, FaGoogle, FaEnvelope,
-} from "react-icons/fa";
+import React, { useState, useEffect } from "react";
+import { FaFacebookF, FaLinkedinIn, FaGoogle, FaEnvelope } from "react-icons/fa";
 import { MdLockOutline } from "react-icons/md";
-import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../context/AuthContext";
 import LoaderSpinner from "../components/LoaderSpinner";
 import { motion } from "framer-motion";
-import { useAuth } from "../hooks/useAuth";
 
 const Signup = () => {
   const [formData, setFormData] = useState({ name: "", email: "", password: "", confirmPassword: "" });
   const [slideOut, setSlideOut] = useState(false);
   const navigate = useNavigate();
-  const { signup, error, clearError, loading } = useAuth();
+  const { signup, error, clearError, loading, isAuthenticated } = useAuthContext();
+
+  // Redirect if already logged in
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/dashboard", { replace: true });
+    }
+  }, [isAuthenticated, navigate]);
 
   const handleChange = (e) => {
     clearError?.();
@@ -26,10 +31,8 @@ const Signup = () => {
     if (password !== confirmPassword) return alert("Passwords do not match");
     try {
       await signup({ name, email, password });
-      navigate("/login");
-    } catch (err) {
-        alert(error.response?.data || "sign up failed")
-    }
+      navigate("/dashboard", { replace: true });
+    } catch (_) {}
   };
 
   const goToLogin = () => {
@@ -47,12 +50,12 @@ const Signup = () => {
           className="hidden md:flex w-2/5 relative flex-col items-center justify-center p-10 text-white"
           style={{
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1540377904109-89bf2d99918a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8d2FpdGVyfGVufDB8MXwwfHx8Mg%3D%3D')",
+              "url('https://images.unsplash.com/photo-1540377904109-89bf2d99918a?w=500&auto=format&fit=crop&q=60')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
         >
-          <div className="absolute inset-0 bg-black/40 bg-opacity-50 rounded-lg"></div>
+          <div className="absolute inset-0 bg-black/40 rounded-lg"></div>
           <div className="relative z-10 flex flex-col items-center">
             <h2 className="text-3xl font-bold mb-2">Welcome Back!</h2>
             <div className="border-2 w-10 rounded-full border-white mb-4"></div>
@@ -71,15 +74,14 @@ const Signup = () => {
           <div className="border-2 w-10 rounded-full border-orange-500 mb-4"></div>
 
           <div className="flex justify-center my-2">
-            <button className="border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-orange-100">
-              <FaFacebookF className="text-sm text-orange-500" />
-            </button>
-            <button className="border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-orange-100">
-              <FaLinkedinIn className="text-sm text-orange-500" />
-            </button>
-            <button className="border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-orange-100">
-              <FaGoogle className="text-sm text-orange-500" />
-            </button>
+            {[FaFacebookF, FaLinkedinIn, FaGoogle].map((Icon, i) => (
+              <button
+                key={i}
+                className="border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-orange-100"
+              >
+                <Icon className="text-sm text-orange-500" />
+              </button>
+            ))}
           </div>
 
           <p className="text-gray-400 my-3">or use your email for registration</p>
@@ -129,7 +131,7 @@ const Signup = () => {
               />
             </label>
 
-            <label className="bg-orange-50 w-64 p-4 flex items-center mb-3 rounded-md text-center">
+            <label className="bg-orange-50 w-64 p-2 flex items-center mb-3 rounded-md text-center">
               <input
                 type="password"
                 name="confirmPassword"

@@ -4,6 +4,7 @@ import { authService } from "../api/auth";
 
 const initialState = {
   user: null,
+  token: null,
   isAuthenticated: false,
   loading: true,
   error: null,
@@ -16,22 +17,53 @@ const AUTH_ACTIONS = {
   LOGOUT: "LOGOUT",
   SET_LOADING: "SET_LOADING",
   CLEAR_ERROR: "CLEAR_ERROR",
+  SET_USER: "SET_USER",
 };
 
 const authReducer = (state, action) => {
   switch (action.type) {
     case AUTH_ACTIONS.START:
       return { ...state, loading: true, error: null };
+
     case AUTH_ACTIONS.SUCCESS:
-      return { ...state, user: action.payload.user, isAuthenticated: true, loading: false, error: null };
+      return {
+        ...state,
+        user: action.payload.user,
+        token: action.payload.token,
+        isAuthenticated: true,
+        loading: false,
+        error: null,
+      };
+
     case AUTH_ACTIONS.FAILURE:
-      return { ...state, user: null, isAuthenticated: false, loading: false, error: action.payload.error || "Auth error" };
+      return {
+        ...state,
+        user: null,
+        token: null,
+        isAuthenticated: false,
+        loading: false,
+        error: action.payload.error || "Auth error",
+      };
+
     case AUTH_ACTIONS.LOGOUT:
-      return { ...state, user: null, isAuthenticated: false, loading: false, error: null };
+      return {
+        ...state,
+        user: null,
+        token: null,
+        isAuthenticated: false,
+        loading: false,
+        error: null,
+      };
+
     case AUTH_ACTIONS.SET_LOADING:
       return { ...state, loading: action.payload };
+
     case AUTH_ACTIONS.CLEAR_ERROR:
       return { ...state, error: null };
+
+    case AUTH_ACTIONS.SET_USER:
+      return { ...state, user: action.payload, isAuthenticated: true };
+
     default:
       return state;
   }
@@ -42,36 +74,39 @@ const AuthContext = createContext(null);
 export const AuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
-  // On app start: try fetching current user
-useEffect(() => {
-  const bootstrap = async () => {
-    try {
-      const storedUser = localStorage.getItem("user");
-      if (storedUser) {
-        dispatch({ type: AUTH_ACTIONS.SUCCESS, payload: { user: JSON.parse(storedUser) } });
-      } else {
-        const user = await authService.getCurrentUser();
-        if (user) {
-          dispatch({ type: AUTH_ACTIONS.SUCCESS, payload: { user } });
-        } else {
-          dispatch({ type: AUTH_ACTIONS.SET_LOADING, payload: false });
-        }
-      }
-    } catch (error) {
-      dispatch({ type: AUTH_ACTIONS.LOGOUT });
-    }
-  };
-  bootstrap();
-}, []);
+  useEffect(() => {
+    const storedUserRaw = sessionStorage.getItem("user");
+    const storedToken = sessionStorage.getItem("token");
 
+    let storedUser = null;
+    try {
+      storedUser = storedUserRaw ? JSON.parse(storedUserRaw) : null;
+    } catch {
+      storedUser = null;
+    }
+
+    if (storedUser && storedToken) {
+      dispatch({
+        type: AUTH_ACTIONS.SUCCESS,
+        payload: { user: storedUser, token: storedToken },
+      });
+    } else {
+      dispatch({ type: AUTH_ACTIONS.SET_LOADING, payload: false });
+    }
+  }, []);
 
   const login = async (credentials) => {
     dispatch({ type: AUTH_ACTIONS.START });
     try {
-      const { user } = await authService.login(credentials);
-       localStorage.setItem("user", JSON.stringify(user));
-      dispatch({ type: AUTH_ACTIONS.SUCCESS, payload: { user } });
-      return { user };
+      const response = await authService.login(credentials);
+      const token = response.token;
+      const user = response.user || { email: credentials.email };
+
+      sessionStorage.setItem("user", JSON.stringify(user));
+      sessionStorage.setItem("token", token);
+
+      dispatch({ type: AUTH_ACTIONS.SUCCESS, payload: { user, token } });
+      return { user, token };
     } catch (error) {
       dispatch({
         type: AUTH_ACTIONS.FAILURE,
@@ -84,10 +119,15 @@ useEffect(() => {
   const signup = async (userData) => {
     dispatch({ type: AUTH_ACTIONS.START });
     try {
-      const { user } = await authService.signup(userData);
-       localStorage.setItem("user", JSON.stringify(user));
-      dispatch({ type: AUTH_ACTIONS.SUCCESS, payload: { user } });
-      return { user };
+      const response = await authService.signup(userData);
+      const token = response.token;
+      const user = response.user || { email: userData.email, name: userData.name };
+
+      sessionStorage.setItem("user", JSON.stringify(user));
+      sessionStorage.setItem("token", token);
+
+      dispatch({ type: AUTH_ACTIONS.SUCCESS, payload: { user, token } });
+      return { user, token };
     } catch (error) {
       dispatch({
         type: AUTH_ACTIONS.FAILURE,
@@ -97,16 +137,20 @@ useEffect(() => {
     }
   };
 
+  const logout = async () => {
+    try {
+      await authService.logout();
+    } finally {
+      sessionStorage.removeItem("user");
+      sessionStorage.removeItem("token");
+      dispatch({ type: AUTH_ACTIONS.LOGOUT });
+    }
+  };
 
-const logout = async () => {
-  try {
-    await authService.logout();
-  } finally {
-    localStorage.removeItem("user"); // <-- add this
-    dispatch({ type: AUTH_ACTIONS.LOGOUT });
-  }
-};
-
+  const setUser = (user) => {
+    sessionStorage.setItem("user", JSON.stringify(user));
+    dispatch({ type: AUTH_ACTIONS.SET_USER, payload: user });
+  };
 
   const clearError = () => dispatch({ type: AUTH_ACTIONS.CLEAR_ERROR });
 
@@ -117,6 +161,7 @@ const logout = async () => {
         login,
         signup,
         logout,
+        setUser,
         clearError,
       }}
     >

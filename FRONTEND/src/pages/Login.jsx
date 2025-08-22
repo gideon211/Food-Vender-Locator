@@ -1,11 +1,9 @@
 // src/pages/Login.jsx
-import {
-  FaFacebookF, FaLinkedinIn, FaGoogle, FaEnvelope,
-} from "react-icons/fa";
+import React, { useState, useEffect } from "react";
+import { FaFacebookF, FaLinkedinIn, FaGoogle, FaEnvelope } from "react-icons/fa";
 import { MdLockOutline } from "react-icons/md";
-import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useAuth } from "../hooks/useAuth";
+import { useAuthContext } from "../context/AuthContext";
 import LoaderSpinner from "../components/LoaderSpinner";
 import { motion } from "framer-motion";
 
@@ -14,7 +12,14 @@ const Login = () => {
   const [slideOut, setSlideOut] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const { login, error, clearError, loading } = useAuth();
+  const { login, error, clearError, loading, isAuthenticated } = useAuthContext();
+
+  // Redirect if already logged in
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/dashboard", { replace: true });
+    }
+  }, [isAuthenticated, navigate]);
 
   const handleChange = (e) => {
     clearError?.();
@@ -24,9 +29,15 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await login(formData);
-      const redirectTo = location.state?.from?.pathname || "/dashboard";
-      navigate(redirectTo, { replace: true });
+      const { user, token } = await login(formData);
+      if (user && token) {
+        const redirectTo = location.state?.from?.pathname || "/dashboard";
+        if (redirectTo === "/login" || redirectTo === "/signup") {
+          navigate("/dashboard", { replace: true });
+        } else {
+          navigate(redirectTo, { replace: true });
+        }
+      }
     } catch (_) {}
   };
 
@@ -43,15 +54,14 @@ const Login = () => {
           <div className="border-2 w-10 border-orange-500 rounded-full mb-4"></div>
 
           <div className="flex justify-center my-2">
-            <button className="border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-orange-100">
-              <FaFacebookF className="text-sm text-orange-500" />
-            </button>
-            <button className="border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-orange-100">
-              <FaLinkedinIn className="text-sm text-orange-500" />
-            </button>
-            <button className="border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-orange-100">
-              <FaGoogle className="text-sm text-orange-500" />
-            </button>
+            {[FaFacebookF, FaLinkedinIn, FaGoogle].map((Icon, i) => (
+              <button
+                key={i}
+                className="border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-orange-100"
+              >
+                <Icon className="text-sm text-orange-500" />
+              </button>
+            ))}
           </div>
 
           <p className="text-gray-400 my-3">or use your email account</p>
@@ -122,12 +132,12 @@ const Login = () => {
           className="hidden md:flex w-2/4 relative flex-col items-center justify-center p-10 text-white"
           style={{
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZHxlbnwwfDF8MHx8fDI%3D')",
+              "url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=500&auto=format&fit=crop&q=60')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
         >
-          <div className="absolute inset-0 bg-black/30 bg-opacity-50 rounded-lg"></div>
+          <div className="absolute inset-0 bg-black/30 rounded-lg"></div>
           <div className="relative z-10 flex flex-col items-center">
             <h2 className="text-3xl font-bold mb-2">Hello, Friend!</h2>
             <div className="border-2 w-10 border-white rounded-full mb-4"></div>

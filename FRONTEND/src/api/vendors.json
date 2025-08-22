@@ -200,7 +200,7 @@
     "id": 12,
     "name": "Ebenezer's Kitchen",
     "city": "Accra",
-    "img": "https://images.fliprogram.com/u/2023/09/29153245/Street-Food-4.webp?strip=all&lossy=1&ssl=1",
+    "img": "https://static.vecteezy.com/system/resources/previews/046/838/264/non_2x/portrait-of-a-smiling-young-ghanaian-man-with-short-curly-hair-in-a-cozy-bedroom-setting-photo.jpg",
     "location": { "lat": 5.5900, "lng": -0.1900 },
     "dishes": [
       { "name": "Red Red", "price": 15, "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf3Uz4P8_dYNcbIkowZOI7GT6L2GRw0J6VJg&s" },

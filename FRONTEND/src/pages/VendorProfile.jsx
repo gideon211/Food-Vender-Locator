@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
+import React, { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import L from "leaflet";
+import { useAuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 // Fix leaflet marker icon
 delete L.Icon.Default.prototype._getIconUrl;
@@ -18,14 +18,22 @@ L.Icon.Default.mergeOptions({
 export default function VendorProfileForm() {
   const [location, setLocation] = useState({ latitude: "", longitude: "" });
   const [loadingLocation, setLoadingLocation] = useState(false);
-  const [locationSuccess, setLocationSuccess] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
-  // NEW — State for multiple dishes
-  const [dishes, setDishes] = useState([{ name: "", image: null }]);
+  const { token } = useAuthContext();
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    restaurantName: "",
+    restaurantEmail: "",
+    phoneNumber: "",
+    imageUrl: "",
+    restaurantType: "",
+    description: "",
+  });
 
   const handleGetLocation = () => {
     setLoadingLocation(true);
-    setLocationSuccess(false);
 
     navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -33,9 +41,8 @@ export default function VendorProfileForm() {
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
         });
-        setLocationSuccess(true);
         setLoadingLocation(false);
-        toast.success("Feched Successfully");
+        toast.success("Fetched Successfully");
       },
       (error) => {
         console.error("Location error:", error);
@@ -45,25 +52,73 @@ export default function VendorProfileForm() {
     );
   };
 
-  // NEW — Handle dish changes
-  const handleDishChange = (index, field, value) => {
-    const updated = [...dishes];
-    updated[index][field] = value;
-    setDishes(updated);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const vendor = {
+        restaurantName: formData.restaurantName,
+        restaurantEmail: formData.restaurantEmail,
+        phoneNumber: formData.phoneNumber,
+        imageUrl: formData.imageUrl,
+        restaurantType: formData.restaurantType,
+        description: formData.description,
+        latitude: parseFloat(location.latitude),
+        longitude: parseFloat(location.longitude),
+      };
+
+      console.log("Sending vendor payload:", vendor);
+
+      const res = await fetch(
+        "https://food-vender-locator.onrender.com/api/vendors/add",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: token ? `Bearer ${token}` : undefined,
+          },
+          body: JSON.stringify(vendor),
+        }
+      );
+
+      if (!res.ok) {
+        throw new Error("Failed to save vendor");
+      }
+
+      const data = await res.json();
+      toast.success("Vendor added successfully!");
+      console.log("Created vendor:", data);
+
+      setSubmitted(true);
+    } catch (error) {
+      console.error(error);
+      toast.error(error.message || "Error adding vendor");
+    }
   };
 
-  // NEW — Add new dish row
-  const handleAddDish = () => {
-    setDishes([...dishes, { name: "", image: null }]);
-  };
+  // Redirect after 1 second when submitted
+  useEffect(() => {
+    if (submitted) {
+      const timer = setTimeout(() => {
+        navigate("/Dashboard");
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [submitted, navigate]);
 
-  // NEW — Remove dish row
-  const handleRemoveDish = (index) => {
-    setDishes(dishes.filter((_, i) => i !== index));
-  };
+  // Success screen
+  if (submitted) {
+    return (
+      <div className="flex items-center justify-center h-screen bg-amber-50">
+        <h1 className="text-xl font-bold text-green-600">
+          Shop created successfully. Redirecting...
+        </h1>
+      </div>
+    );
+  }
 
   return (
-    <div className="flex flex-col lg:flex-row w-ful min-h-screen">
+    <div className="flex flex-col lg:flex-row w-full min-h-screen">
       {/* Left Side */}
       <div
         className="relative w-full lg:w-full bg-cover bg-center"
@@ -86,8 +141,8 @@ export default function VendorProfileForm() {
       </div>
 
       {/* Right Side */}
-      <div className="w-full lg:w-full flex  justify-center bg-amber-50 p-6 lg:p-12">
-        <div className="w-full max-w-xl bg-amber-50 rounded-md  p-8">
+      <div className="w-full lg:w-full flex justify-center bg-amber-50 p-6 lg:p-12">
+        <div className="w-full max-w-xl bg-amber-50 rounded-md p-8">
           <h2 className="text-3xl font-semibold text-gray-900 mb-2 leading-4xl">
             Let us help your business grow!
           </h2>
@@ -98,40 +153,86 @@ export default function VendorProfileForm() {
             </a>
           </p>
 
-          <form className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-            {/* Business Name */}
-            <div>
+          <form
+            onSubmit={handleSubmit}
+            className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm"
+          >
+            {/* Restaurant Name */}
+            <div className="md:col-span-2">
               <label className="block text-gray-800 font-medium mb-1">
                 Restaurant name
               </label>
               <input
                 type="text"
-                placeholder="Enter business name"
+                placeholder="Enter restaurant name"
                 className="bg-white border rounded-md px-4 py-3 w-full"
+                value={formData.restaurantName}
+                onChange={(e) =>
+                  setFormData({ ...formData, restaurantName: e.target.value })
+                }
               />
             </div>
 
-            {/* Business Type */}
-            <div>
-              <label className="block text-gray-800 font-medium mb-1">
-                Restaurant type
-              </label>
-              <select className="bg-white border rounded-md px-4 py-3 w-full text-gray-700">
-                {/* <option value="">Select business type</option> */}
-                <option value="restaurant">Restaurant</option>
-                <option value="local">Local</option>
-              </select>
-            </div>
-
-            {/* Address */}
+            {/* Restaurant Email */}
             <div className="md:col-span-2">
               <label className="block text-gray-800 font-medium mb-1">
-                City
+                Restaurant Email
+              </label>
+              <input
+                type="email"
+                placeholder="Enter email"
+                className="bg-white border rounded-md px-4 py-3 w-full"
+                value={formData.restaurantEmail}
+                onChange={(e) =>
+                  setFormData({ ...formData, restaurantEmail: e.target.value })
+                }
+              />
+            </div>
+
+            {/* Phone */}
+            <div className="md:col-span-2">
+              <label className="block text-gray-800 font-medium mb-1">
+                Phone
               </label>
               <input
                 type="text"
-                placeholder="Enter your venue address"
+                placeholder="Enter phone number"
                 className="bg-white border rounded-md px-4 py-3 w-full"
+                value={formData.phoneNumber}
+                onChange={(e) =>
+                  setFormData({ ...formData, phoneNumber: e.target.value })
+                }
+              />
+            </div>
+
+            {/* Restaurant Type */}
+            <div className="md:col-span-2">
+              <label className="block text-gray-800 font-medium mb-1">
+                Restaurant Type
+              </label>
+              <input
+                type="text"
+                placeholder="e.g. Fast Food, Cafe"
+                className="bg-white border rounded-md px-4 py-3 w-full"
+                value={formData.restaurantType}
+                onChange={(e) =>
+                  setFormData({ ...formData, restaurantType: e.target.value })
+                }
+              />
+            </div>
+
+            {/* Description */}
+            <div className="md:col-span-2">
+              <label className="block text-gray-800 font-medium mb-1">
+                Description
+              </label>
+              <textarea
+                placeholder="Short description"
+                className="bg-white border rounded-md px-4 py-3 w-full"
+                value={formData.description}
+                onChange={(e) =>
+                  setFormData({ ...formData, description: e.target.value })
+                }
               />
             </div>
 
@@ -140,7 +241,7 @@ export default function VendorProfileForm() {
               <button
                 type="button"
                 onClick={handleGetLocation}
-                className="w- border bg-orange-200 hover:bg-orange-200 rounded-md px-4 py-3 text-left"
+                className="w-full border bg-orange-200 hover:bg-orange-200 rounded-md px-4 py-3 text-left"
               >
                 {loadingLocation
                   ? "Fetching location..."
@@ -155,25 +256,30 @@ export default function VendorProfileForm() {
             {/* Vendor Profile Image */}
             <div className="md:col-span-2">
               <label className="block text-gray-800 font-medium mb-1">
-                Profile image(URL)
+                Profile image (URL)
               </label>
               <input
                 type="text"
-                accept="image/*"
                 className="bg-white border rounded-md px-4 py-3 w-full cursor-text"
+                value={formData.imageUrl}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    imageUrl: e.target.value,
+                  })
+                }
               />
               <p className="text-xs text-gray-500 mt-1">
                 Upload a clear image of your restaurant, shop, or logo.
               </p>
             </div>
 
-            {/* NEW — Multiple Dishes Section */}
-{/* Dishes Section */}
-
-
             {/* Submit */}
             <div className="md:col-span-2">
-              <button className="mt-6 bg-orange-500 hover:bg-orange-600 text-white w-full py-3 rounded-full font-medium cursor-pointer">
+              <button
+                type="submit"
+                className="mt-6 bg-orange-500 hover:bg-orange-600 text-white w-full py-3 rounded-full font-medium cursor-pointer"
+              >
                 Get started
               </button>
             </div>

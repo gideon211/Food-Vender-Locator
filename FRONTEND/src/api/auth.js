@@ -3,26 +3,34 @@ import client from "./client";
 
 export const authService = {
   login: async (credentials) => {
-    const { data } = await client.post("/users/login", credentials);
-    return data; // expected { user }
+    const { data } = await client.post("/login", credentials, {
+      headers: { "Content-Type": "application/json" },
+    });
+    if (data.token) {
+      localStorage.setItem("token", data.token);
+    }
+    return data;
   },
 
-signup: async (userData) => {
-  const { data } = await client.post("/users", {
-    name: userData.name,   // must match backend
-    email: userData.email, // must match backend
-    password: userData.password,
-  });
-  return data;
-},
-
-
-  logout: async () => {
-    await client.post("/users/logout");
+  signup: async (userData) => {
+    const { data } = await client.post(
+      "/register",
+      {
+        name: userData.name,
+        email: userData.email,
+        password: userData.password,
+      },
+      {
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+    if (data.token) {
+      localStorage.setItem("token", data.token);
+    }
+    return data;
   },
 
-//   getCurrentUser: async () => {
-//     const { data } = await client.get("/me");
-//     return data; // expected { user }
-//   },
+  logout: () => {
+    localStorage.removeItem("token");
+  },
 };

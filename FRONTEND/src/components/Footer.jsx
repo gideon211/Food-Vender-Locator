@@ -42,7 +42,7 @@ const Footer = () => {
             <h4 className="text-md font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-gray-300">
               <li>Email: info@vendorapp.com</li>
-              <li>Phone: (555) 123-4567</li>
+              <li>Phone: (233) 123-4567</li>
               <li>Address: 123 Business St</li>
             </ul>
           </div>
