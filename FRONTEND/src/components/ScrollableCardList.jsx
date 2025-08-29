@@ -10,7 +10,7 @@ export default function ScrollableCardList({ title, cardWidth = "16rem" }) {
   const scroll = (direction) => {
     if (scrollRef.current) {
       const { scrollLeft, clientWidth } = scrollRef.current;
-      const scrollAmount = clientWidth * 0.8;
+      const scrollAmount = clientWidth * 0.5;
       scrollRef.current.scrollTo({
         left:
           direction === "left"
