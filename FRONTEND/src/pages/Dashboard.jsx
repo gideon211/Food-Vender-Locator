@@ -94,7 +94,7 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="relative bg-gradient-to-b bg-amber-50 text-gray-800">
+    <div className="relative bg-gradient-to-b bg-amber- text-gray-800">
       {/* Header */}
       <header className="sticky top-0 z-50 h-[60px] bg-orange-100 md:rounded-br-2xl flex items-center justify-between px-4 md:px-16">
         {/* Logo + Sidebar Toggle */}
@@ -237,27 +237,13 @@ const Dashboard = () => {
       )}
 
       {/* Main content */}
-      <div className="py-[2rem] ">
-        <DishCarousel />
-      </div>
 
-      <div className="pt-[8rem]">
-        <div className="flex justify-center pb-[6rem]">
-          <h1 className="text-5xl font-bold">Explore Some of Your Favorites</h1>
-        </div>
 
-        <div className="flex flex-wrap gap-15 justify-center items-center">
-          {fadishes.map((dish, index) => (
-            <img
-              key={index}
-              src={dish.img}
-              alt=""
-              className="w-32 h-32 sm:w-36 sm:h-36 rounded-full shadow-2xl object-cover"
-            />
-          ))}
-        </div>
+      <div>
 
-        <div className="ml-[4rem] mt-[10rem] mb-[4rem]">
+
+
+        <div className="ml-[4rem] mt-[2rem] mb-[4rem]">
           <h1 className="text-3xl font-bold pb-[2rem] ml-10">Near BY Vendors</h1>
           <ScrollableCardList />
         </div>

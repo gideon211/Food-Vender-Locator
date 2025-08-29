@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const DishList = ({ vendors }) => {
   return (
-    <div className="p-4 grid grid-cols-1 md:grid-cols-2 gap-6 shadow-white">
+    <div className="p-4 grid grid-cols-1 md:grid-cols-2 gap-6 shadow-white ">
       {vendors.slice(0, 10).map((vendor) => (
         <Link
           to={`/vendor/${vendor.id}`}

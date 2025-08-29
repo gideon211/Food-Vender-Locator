@@ -9,7 +9,7 @@ function NeighborhoodStaples({ vendors = [] }) {
         <Link
           to={`/vendor/${vendor.id}`}
           key={vendor.id}
-          className="flex gap-2 items-start overflow-hidden hover:cursor-pointer transform transition duration-300 hover:scale-102"
+          className="flex max-md:flex-col gap-2 items-start overflow-hidden hover:cursor-pointer transform transition duration-300 hover:scale-102"
         >
           {/* Vendor Image */}
           <div className="w-[15rem] mr-4 h-[10rem]">

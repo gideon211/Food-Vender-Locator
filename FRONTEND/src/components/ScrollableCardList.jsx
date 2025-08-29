@@ -36,13 +36,13 @@ export default function ScrollableCardList({ title, cardWidth = "16rem" }) {
       {/* Scroll Container */}
       <div
         ref={scrollRef}
-        className="flex w-[105rem] overflow-x-auto gap-8 scrollbar-hide scroll-smooth px-10"
+        className="flex w-[95%] overflow-x-auto gap-4 scrollbar-hide scroll-smooth px-10"
       >
         {items.slice(10, 20).map((item) => (
           <Link
             to={`/vendor/${item.id}`}
             key={item.id}
-            className=" h-[15rem] border-b-2 rounded-b-xl border-orange-400 cursor-pointer flex-shrink-0 overflow-hidden rounded "
+            className=" h-[15rem] border-b-3 rounded-b-xl border-orange-300 cursor-pointer flex-shrink-0 overflow-hidden rounded "
             style={{ minWidth: cardWidth }}
           >
             <img
@@ -50,8 +50,8 @@ export default function ScrollableCardList({ title, cardWidth = "16rem" }) {
               alt={item.name}
               className="w-full h-40 object-cover hover:scale-105 transition-transform"
             />
-            <div className="p-4 border-orange-100 border-b-1 border bg-orange-100">
-              <h3 className="font-semibold text-lg text-">{item.name}</h3>
+            <div className="p-4 border-orange-100 border-b-1 border bg-orange-00">
+              <h3 className="font-medium text-lg leading-tight">{item.name}</h3>
               {item.city && (
                 <p className="text-sm text-gray-500">{item.city}</p>
               )}
@@ -63,7 +63,7 @@ export default function ScrollableCardList({ title, cardWidth = "16rem" }) {
       {/* Right Arrow */}
       <button
         onClick={() => scroll("right")}
-        className="absolute right-[6rem] top-1/2 -translate-y-1/7 z-10 bg-white/40 shadow-md p-2 rounded-full hover:bg-gray-200"
+        className="absolute right-[1rem] top-1/2 -translate-y-1/7 z-10 bg-white/40 shadow-md p-2 rounded-full hover:bg-gray-200"
       >
         <ChevronRight size={24} />
       </button>
