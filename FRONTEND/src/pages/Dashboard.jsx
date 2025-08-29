@@ -15,16 +15,6 @@ import vendorData from "../api/vendors.json";
 import toast from "react-hot-toast";
 import { useAuthContext } from "../context/AuthContext";
 
-const fadishes = [
-  { id: 1, img: "https://images.unsplash.com/photo-1542528180-a1208c5169a5?q=80&w=1177&auto=format&fit=crop" },
-  { id: 2, img: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?q=80&w=1013&auto=format&fit=crop" },
-  { id: 3, img: "https://images.unsplash.com/photo-1536304575888-ccb70eeef59b?w=500&auto=format&fit=crop&q=60" },
-  { id: 4, img: "https://images.unsplash.com/photo-1544414082-112fb25cf35d?w=500&auto=format&fit=crop&q=60" },
-  { id: 5, img: "https://images.unsplash.com/photo-1446645681877-acde17e336a9?w=500&auto=format&fit=crop&q=60" },
-  { id: 6, img: "https://images.unsplash.com/photo-1490990813269-10586274747f?w=500&auto=format&fit=crop&q=60" },
-  { id: 7, img: "https://images.unsplash.com/photo-1602253057119-44d745d9b860?w=500&auto=format&fit=crop&q=60" },
-  { id: 8, img: "https://images.unsplash.com/photo-1559847844-5315695dadae?w=500&auto=format&fit=crop&q=60" }
-];
 
 const Dashboard = () => {
   const { token, setUser: setAuthUser } = useAuthContext();
