@@ -57,7 +57,7 @@ export default function ScrollableCardList({ title, cardWidth = "16rem" }) {
               )}
             </div>
           </Link>
-        ))}
+        ))}     
       </div>
 
       {/* Right Arrow */}

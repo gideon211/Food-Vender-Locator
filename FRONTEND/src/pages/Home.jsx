@@ -58,30 +58,32 @@ function Home() {
         </div>
 
         {/* Image */}
-        <div className="w-full md:w-1/2 grid justify-center grid-cols-2 gap-[1rem] mb-10 md:mb-0 animate-slideLeft delay-[400ms]">
-          <img
-            src="https://images.unsplash.com/photo-1460306855393-0410f61241c7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTg5fHxyZXN0YXVyYW50fGVufDB8MHwwfHx8Mg%3D%3D"
-            alt="Vendor Map Preview"
-            className="w-full max-w-sm md:max-w-md lg:max-w-lg md:h-[19.3rem] object-cover rounded-tl-xl shadow-lg"
-          />
+<div className="w-full md:w-1/2 grid  aspect-[4/3] justify-center grid-cols-2 gap-4 mb-10 md:mb-0 animate-slideLeft delay-[400ms]">
+  <img
+    src="https://images.unsplash.com/photo-1460306855393-0410f61241c7?w=500&auto=format&fit=crop&q=60"
+    alt="Vendor Map Preview"
+    className="w-full aspect-square object-cover rounded-tl-xl shadow-lg"
+  />
 
-                    <img
-            src="https://images.unsplash.com/photo-1468070975228-085c1fdd2d3e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTc3fHxyZXN0YXVyYW50fGVufDB8MHwwfHx8Mg%3D%3D"
-            alt="Vendor Map Preview"
-            className="w-full max-w-sm md:max-w-md lg:max-w-lg object-cover rounded-tr-xl shadow-lg"
-          />
+  <img
+    src="https://images.unsplash.com/photo-1468070975228-085c1fdd2d3e?w=500&auto=format&fit=crop&q=60"
+    alt="Vendor Map Preview"
+    className="w-64 h-64 object-cover rounded-tr-xl shadow-lg"
+  />
 
-                    <img
-            src="https://images.unsplash.com/photo-1515669097368-22e68427d265?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTM1fHxyZXN0YXVyYW50fGVufDB8MHwwfHx8Mg%3D%3D"
-            alt="Vendor Map Preview"
-            className="w-full max-w-sm md:max-w-md lg:max-w-lg object-cover rounded-bl-xl shadow-lg"
-          />
-                    <img
-            src="https://images.unsplash.com/photo-1513271224036-f526ad664968?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHxyZXN0YXVyYW50fGVufDB8MHwwfHx8Mg%3D%3D"
-            alt="Vendor Map Preview"
-            className="w-full max-w-sm md:max-w-md lg:max-w-lg object-cover rounded-br-xl shadow-lg"
-          />
-        </div>
+  <img
+    src="https://images.unsplash.com/photo-1515669097368-22e68427d265?w=500&auto=format&fit=crop&q=60"
+    alt="Vendor Map Preview"
+    className="w-64 h-64 object-cover rounded-bl-xl shadow-lg"
+  />
+
+  <img
+    src="https://images.unsplash.com/photo-1513271224036-f526ad664968?w=500&auto=format&fit=crop&q=60"
+    alt="Vendor Map Preview"
+    className="w-64 h-64 object-cover rounded-br-xl shadow-lg"
+  />
+</div>
+
       </section>
 
 
