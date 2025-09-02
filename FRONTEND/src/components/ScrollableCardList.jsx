@@ -50,7 +50,7 @@ export default function ScrollableCardList({ title, cardWidth = "16rem" }) {
               alt={item.name}
               className="w-full h-40 object-cover hover:scale-105 transition-transform"
             />
-            <div className="p-4 border-orange-100 border-b-1 border bg-orange-00">
+            <div className="p-4 border-orange-100 border-b-1   border bg-orange-00">
               <h3 className="font-medium text-lg leading-tight">{item.name}</h3>
               {item.city && (
                 <p className="text-sm text-gray-500">{item.city}</p>
