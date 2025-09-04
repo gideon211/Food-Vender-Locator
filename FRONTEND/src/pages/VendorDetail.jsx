@@ -107,7 +107,7 @@ export default function VendorDetail() {
   }
 
   return (
-    <div className="bg-amber-50 min-h-screen">
+    <div className="bg-white min-h-screen">
 
 
 

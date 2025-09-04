@@ -131,9 +131,9 @@ const Dashboard = () => {
             {user.role !== "vendor" ? (
               <button
                 onClick={handleUpgradeToVendor}
-                className="bg-orange-500 text-white px-4 py-2 rounded-md"
+                className="bg-orange-500 text-white px-4 py-2 rounded-md cursor-pointer"
               >
-                Upgrade to Vendor
+                Upgrade 
               </button>
             ) : (
               <div className="group relative">

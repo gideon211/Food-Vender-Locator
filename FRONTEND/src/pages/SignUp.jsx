@@ -1,6 +1,6 @@
 // src/pages/Signup.jsx
 import React, { useState, useEffect } from "react";
-import { FaFacebookF, FaLinkedinIn, FaGoogle, FaEnvelope } from "react-icons/fa";
+import { FaFacebookF, FaLinkedinIn, FaGoogle, FaEnvelope,  FaUserCheck } from "react-icons/fa";
 import { MdLockOutline } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext";
@@ -94,6 +94,7 @@ const Signup = () => {
 
           <form onSubmit={handleSubmit} className="flex flex-col items-center">
             <label className="bg-orange-50 w-64 p-2 flex items-center mb-3 rounded-md">
+                <FaUserCheck className="m-2 text-gray-500" /> 
               <input
                 type="text"
                 name="name"
@@ -101,12 +102,12 @@ const Signup = () => {
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="bg-transparent outline-none text-sm flex-1 text-gray-800 "
+                className="bg-transparent outline-none text-sm flex-1 text-gray-500 "
               />
             </label>
 
             <label className="bg-orange-50 w-64 p-2 flex items-center mb-3 rounded-md">
-              <FaEnvelope className=" m-2" />
+              <FaEnvelope className=" m-2 text-gray-500" />
               <input
                 type="email"
                 name="email"
@@ -119,7 +120,7 @@ const Signup = () => {
             </label>
 
             <label className="bg-orange-50 w-64 p-2 flex items-center mb-3 rounded-md">
-              <MdLockOutline className=" m-2" />
+              <MdLockOutline className=" m-2 text-gray-500" />
               <input
                 type="password"
                 name="password"
@@ -132,6 +133,7 @@ const Signup = () => {
             </label>
 
             <label className="bg-orange-50 w-64 p-2 flex items-center mb-3 rounded-md text-center">
+                <MdLockOutline className="m-2 text-gray-500" />
               <input
                 type="password"
                 name="confirmPassword"

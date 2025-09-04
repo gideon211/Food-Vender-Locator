@@ -74,7 +74,7 @@ const Login = () => {
 
           <form onSubmit={handleSubmit} className="flex flex-col items-center">
             <label className="bg-orange-50 w-64 p-2 flex items-center mb-3 rounded-md">
-              <FaEnvelope className="text-black m-2" />
+              <FaEnvelope className=" m-2 text-gray-500" />
               <input
                 type="email"
                 name="email"
@@ -87,7 +87,7 @@ const Login = () => {
             </label>
 
             <label className="bg-orange-50 w-64 p-2 flex items-center mb-3 rounded-md">
-              <MdLockOutline className="text-black m-2" />
+              <MdLockOutline className="text-gray-500 m-2" />
               <input
                 type="password"
                 name="password"
